@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
+date: 2026-06-21
 weight: 2
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu cho tuần 10:
 
-### Mục tiêu tuần 10:
+* Xây dựng hệ thống FlashLearn – ứng dụng web hỗ trợ học tiếng Anh thông qua flashcard, quiz, battle và cộng đồng học tập.
+* Triển khai kiến trúc hệ thống hiện đại trên nền tảng AWS (Khu vực Singapore) với cấu trúc VPC trên hai Availability Zone để đảm bảo tính sẵn sàng cao.
+* Tối ưu hóa hiệu năng ứng dụng bằng cách kết hợp mô hình Serverless và các dịch vụ quản lý như Amazon CloudFront, Lambda và EventBridge.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Nhiệm vụ cho tuần 10:
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Ngày | Nhiệm vụ | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| :---: | :--- | :---: | :---: | :--- |
+| 2 | Họp nhóm: Hoàn thiện thiết kế Schema cơ sở dữ liệu PostgreSQL và thu thập dữ liệu học tập. | 21/06/2026 | 22/06/2026 | [Tài liệu học tập AWS](https://cloudjourney.awsstudygroup.com/) |
+| 3 | Triển khai VPC trên 2 Availability Zone; cấu hình bảo mật với IAM và thiết lập quyền truy cập cho EC2 instance. | 22/06/2026 | 23/06/2026 | [Tài liệu học tập AWS](https://cloudjourney.awsstudygroup.com/) |
+| 4 | Cấu hình ALB để cân bằng tải cho các EC2 instance; triển khai nội dung tĩnh lên S3 và CloudFront. | 23/06/2026 | 24/06/2026 | [Tài liệu học tập AWS](https://cloudjourney.awsstudygroup.com/) |
+| 5 | Team Meeting: Review thiết kế UI trên Figma; tối ưu luồng trải nghiệm người dùng dựa trên phản hồi. | 24/06/2026 | 26/06/2026 | [Tài liệu học tập AWS](https://cloudjourney.awsstudygroup.com/) |
+| 6 | Thiết lập EventBridge để trigger Lambda xử lý thông báo tự động; tích hợp Amazon Polly cho tính năng phát âm. | 26/06/2026 | 28/06/2026 | [Tài liệu học tập AWS](https://cloudjourney.awsstudygroup.com/) |
 
+### Thành tích tuần 10:
 
-### Kết quả đạt được tuần 10:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hoàn thiện kiến trúc mạng bao gồm VPC, Public/Private Subnet, Application Load Balancer (ALB) và thiết lập cơ chế đồng bộ hóa dữ liệu (Synchronous replication) cho RDS PostgreSQL giữa các vùng sẵn sàng.
+* Sử dụng Amazon S3 và CloudFront để phân phối nội dung tĩnh.
+* Tích hợp Amazon Polly để cung cấp tính năng chuyển đổi văn bản thành giọng nói (TTS) qua các cuộc gọi API nội bộ.
+* Cấu hình Amazon EventBridge kết hợp với AWS Lambda để xử lý các tác vụ định kỳ như gửi thông báo nhắc nhở hạn chót.
+* Thực hiện các phiên họp nhóm để hoàn thiện thiết kế Schema cơ sở dữ liệu PostgreSQL và cải thiện giao diện UI trên Figma.
+* Nắm vững các dịch vụ bảo mật và quản lý định danh bao gồm IAM, AWS WAF và NAT Gateway để đảm bảo an toàn cho hệ thống.
