@@ -7,17 +7,17 @@ chapter: false
 
 # Báo cáo thực tập
 ### Thông tin sinh viên:
-&emsp; **Họ và tên:** Nguyễn Văn A
+&emsp; **Họ và tên:** Tô Vũ Hào
 
-&emsp; **Số điện thoại:** 0989888999
+&emsp; **Số điện thoại:** 0937166424
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** tovu5810@gmail.com
 
-&emsp; **Trường:** Đại học Sư phạm Kỹ thuật TP.HCM
+&emsp; **Trường:** Đại Học Công Nghệ Thành Phố Hồ Chí Minh
 
 &emsp; **Ngành:** Công nghệ thông tin
 
-&emsp; **Lớp:** AWS082025
+&emsp; **Lớp:** AWS042026
 
 &emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Viet Nam
 
