@@ -1,57 +1,30 @@
 ---
-title: "Week 6 Worklog"
-date: 2024-01-01
+title: "Worklog Tuần 6"
+date: 2026-05-24
 weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Mục tiêu cho tuần 6:
 
-### Week 6 Objectives:
+* Tập trung nghiên cứu sâu về các công cụ bảo mật tự động nhằm tối ưu hóa khả năng giám sát và phản ứng với các rủi ro tiềm ẩn.
+* Hoàn thiện kỹ năng thiết lập quyền hạn chi tiết trong IAM, bao gồm việc phân biệt vai trò (roles) và người dùng (users) để áp dụng nguyên tắc đặc quyền tối thiểu trong môi trường đám mây.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Nhiệm vụ cho tuần 6:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Ngày | Nhiệm vụ | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| :---: | :--- | :---: | :---: | :--- |
+| 2 | Tìm hiểu nền tảng bảo mật AWS: Mô hình trách nhiệm chung và tầm quan trọng của việc bảo vệ dữ liệu trên đám mây. | 24/05/2026 | 25/05/2026 | [Tài liệu AWS: Mô hình trách nhiệm chung](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/shared-responsibility.html) |
+| 3 | Nghiên cứu về quản trị tuân thủ: Các quy định tiêu chuẩn quốc tế và chức năng cốt lõi trong quản trị (xác định, ngăn chặn, bảo vệ, phản hồi, khôi phục). | 25/05/2026 | 27/05/2026 | [Tài liệu AWS: Chương trình tuân thủ trên đám mây](https://aws.amazon.com/vi/compliance/) |
+| 4 | Đánh giá công cụ bảo mật tự động: Tổng quan về Security Hub, Trusted Advisor và giải pháp phát hiện mối đe dọa với GuardDuty. | 27/05/2026 | 28/05/2026 | [Tài liệu AWS: Phát hiện mối đe dọa thông minh – Amazon GuardDuty](https://aws.amazon.com/vi/guardduty/) |
+| 5 | Quản lý định danh và truy cập (IAM): Nguyên tắc đặc quyền tối thiểu, thiết lập bảo mật cho tài khoản root, MFA và quản lý bí mật. | 28/05/2026 | 29/05/2026 | [Tài liệu AWS: Quản lý nhận dạng và truy cập (IAM)](https://docs.amazonaws.cn/iam/) |
+| 6 | Chuyên sâu về IAM: Phân biệt người dùng và vai trò, thiết lập chính sách quyền truy cập, cũng như cơ chế gắn quyền hạn cho tài nguyên máy tính. | 29/05/2026 | 31/05/2026 | [Tài liệu AWS Builder](https://builder.aws.com/content/3C3mJwaTB5NWzcBfEugE7AUx59H/iam-identity-and-access-management) |
 
+### Thành tích tuần 6:
 
-### Week 6 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Đã nắm vững mô hình trách nhiệm chung giữa khách hàng và AWS, khẳng định được tầm quan trọng của việc bảo vệ dữ liệu trên đám mây.
+* Hoàn thành nghiên cứu về các quy định tiêu chuẩn quốc tế và làm chủ các chức năng cốt lõi trong quản trị như xác định, ngăn chặn, bảo vệ, phản hồi và khôi phục.
+* Đánh giá thành công các dịch vụ Security Hub, Trusted Advisor và giải pháp phát hiện mối đe dọa GuardDuty.
+* Thực thi thành công nguyên tắc đặc quyền tối thiểu, thiết lập bảo mật tài khoản root, MFA và quản lý các thông tin xác thực nhạy cảm.
+* Phân biệt rõ ràng giữa người dùng và vai trò, thiết lập chính sách quyền truy cập chi tiết và gắn quyền hạn cho các tài nguyên máy tính.
