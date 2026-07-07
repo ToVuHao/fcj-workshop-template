@@ -5,104 +5,115 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+# Hệ thống học tập FlashLearn trên nền tảng AWS 
+## Giải pháp kiến trúc ứng dụng Web có tính sẵn sàng cao (High Availability Architecture)  
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+### 1. Tóm tắt điều hành
+Hệ thống FlashLearn là ứng dụng web toàn diện được thiết kế nhằm hỗ trợ người dùng học tiếng Anh thông qua flashcard, quiz, battle và cộng đồng học tập. Dự án tập trung xây dựng kiến trúc hạ tầng hiện đại trên AWS tại khu vực Singapore, chú trọng vào tính phân tán, tự động hóa và tích hợp AI. Nền tảng hướng tới mục tiêu tối ưu hóa trải nghiệm người dùng, đảm bảo tính sẵn sàng cao thông qua cấu trúc mạng Multi-AZ và áp dụng mô hình điện toán Serverless để vận hành thông minh, tiết kiệm chi phí.
 
 ### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+Vấn đề hiện tại
+Các ứng dụng học ngoại ngữ truyền thống thường gặp khó khăn khi quản lý tài nguyên đa phương tiện (ảnh, âm thanh) và xử lý luồng logic phức tạp. Việc lưu trữ trực tiếp trên máy chủ gây nghẽn băng thông khi lượng người dùng lớn, thiếu cơ chế sao lưu dữ liệu đồng bộ khiến thông tin học tập của người dùng dễ bị mất mát khi máy chủ gặp sự cố.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+Giải pháp
+Kiến trúc phân tán được đề xuất nhằm tách biệt các luồng xử lý: Sử dụng CDN để phân phối nội dung tĩnh, cơ sở dữ liệu quan hệ với cơ chế đồng bộ hóa (Synchronous replication) giữa các vùng sẵn sàng, và kiến trúc phi máy chủ (Serverless) để tự động hóa các tác vụ nền như nén ảnh, xử lý thông báo và chuyển đổi văn bản thành giọng nói (TTS).
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+Lợi ích và hoàn vốn đầu tư (ROI)
+Giải pháp tạo nền tảng vững chắc, có khả năng mở rộng quy mô người dùng từ quy mô nhỏ đến cộng đồng học tập lớn. Việc tự động hóa giúp giảm thiểu tối đa các tác vụ thủ công trong quản lý nội dung và giám sát hệ thống. Tổng chi phí duy trì hàng tháng ước tính khoảng 152,78 USD (dựa trên cấu hình Multi-AZ và NAT Gateway), mang lại giá trị vận hành ổn định và lâu dài.
 
 ### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+Nền tảng áp dụng kiến trúc phân tán với các dịch vụ chuyên biệt của AWS, đặt bên trong VPC có phân chia Subnet rõ ràng trên 2 Availability Zones.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+Dịch vụ AWS sử dụng
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+AWS VPC: Mạng nội bộ với Public/Private Subnet trên 2 AZ.
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+Amazon EC2 (ARM64): Xử lý logic Backend.
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+Application Load Balancer (ALB): Cân bằng tải cho các EC2 instances.
 
+Amazon RDS (PostgreSQL): Cơ sở dữ liệu Multi-AZ.
+
+Amazon S3 & CloudFront: Phân phối tài nguyên tĩnh an toàn.
+
+AWS Lambda & EventBridge: Xử lý tác vụ tự động, theo lịch trình.
+
+Amazon Polly: Tích hợp tính năng AI chuyển đổi văn bản sang giọng nói.
+
+CloudWatch & X-Ray: Giám sát hiệu năng và phân tích luồng API.
+
+Thiết kế thành phần
+
+Lớp biên: Route 53 và WAF bảo vệ ứng dụng khỏi các truy cập độc hại.
+
+Lớp xử lý: EC2 instances đặt trong Private Subnet, đảm bảo an toàn tuyệt đối.
+
+Lớp dữ liệu: RDS PostgreSQL với cơ chế sao lưu đồng bộ đảm bảo tính nhất quán dữ liệu.
+
+Lớp AI/Tự động hóa: Lambda kích hoạt bởi EventBridge xử lý các tác vụ nhắc nhở và cập nhật hệ thống.
 ### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+Các giai đoạn triển khai
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+Nghiên cứu & Thiết kế: Thiết kế Schema DB, sơ đồ ERD, tối ưu luồng UI trên Figma.
 
+Thiết lập hạ tầng mạng: Cấu hình VPC, Subnets, Internet Gateway và NAT Gateway.
+
+Triển khai tài nguyên: Cấu hình EC2, ALB, S3 và CloudFront.
+
+Phát triển tính năng: Xây dựng các API (Flashcard, Quiz), tích hợp Polly, Lambda và EventBridge.
+
+Kiểm thử & Giám sát: Thiết lập CloudWatch, X-Ray để giám sát hệ thống và bàn giao.
+
+Yêu cầu kỹ thuật
+
+Sử dụng kiến trúc ARM64 cho EC2 để tối ưu chi phí/hiệu năng.
+
+Tuân thủ nguyên tắc Security Group: EC2 chỉ nhận traffic từ ALB; RDS chỉ nhận traffic từ EC2.
+
+Áp dụng cơ chế OAC cho S3 để chỉ chấp nhận truy cập từ CloudFront.
 ### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+Tuần 1–3: Xây dựng nền tảng mạng và hạ tầng dữ liệu.
+
+Tuần 4–8: Phát triển các service Backend, AI/ML và phân tích dữ liệu.
+
+Tuần 9–10: Hoàn thiện các tính năng cốt lõi, tích hợp giám sát và AI TTS.
+
+Tuần 11–12: Triển khai tính năng tương tác cộng đồng, tối ưu hóa toàn hệ thống và bàn giao.
 
 ### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+Chi phí vận hành hàng tháng ước tính tại khu vực Singapore (ap-southeast-1):
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+RDS Multi-AZ: ~$46.40
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+NAT Gateway (x2): ~$65.70
+
+ALB: ~$16.42
+
+EC2 (x2), S3, CloudFront, WAF, Lambda, Polly: ~$23.66
+
+Tổng cộng: ~$152.18 / tháng.
 
 ### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+Ma trận rủi ro
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
+Chi phí NAT Gateway cao: Ảnh hưởng cao, xác suất trung bình.
 
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
+Lỗi kết nối Security Group: Ảnh hưởng trung bình, xác suất thấp.
+
+Băng thông CloudFront vượt hạn mức: Ảnh hưởng trung bình, xác suất thấp.
+
+Chiến lược giảm thiểu
+
+Tối ưu hóa cấu hình NAT Gateway trong môi trường phát triển.
+
+Kiểm tra nghiêm ngặt quy tắc Security Group trước khi triển khai.
+
+Cấu hình phân chia cache rõ ràng trong CloudFront để tránh lãng phí băng thông.
 
 ### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+Cải tiến kỹ thuật: Hệ thống vận hành ổn định, sẵn sàng cao với kiến trúc Multi-AZ, đáp ứng tốt nhu cầu học tập tương tác của người dùng.
+Giá trị dài hạn: Nền tảng dữ liệu được cấu trúc chặt chẽ, dễ dàng mở rộng và tích hợp thêm các dịch vụ AI nâng cao trong tương lai.
