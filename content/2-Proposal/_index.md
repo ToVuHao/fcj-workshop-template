@@ -5,22 +5,25 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+
 
 In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# FlashLearn Learning System on AWS
+## A Proposal for a High Availability Web Application Architecture
 
-### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+### 1.Executive Summary
+FlashLearn is a comprehensive web application designed to support English language learning through features such as flashcards, quizzes, battles, and a learning community. This project focuses on building a modern infrastructure on AWS in the Singapore region, emphasizing decentralization, automation, and AI integration. The platform aims to optimize user experience, ensure high availability through a Multi-AZ network structure, and apply a Serverless computing model for intelligent and cost-effective operations.
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+Current Challenges
+Traditional language learning applications often struggle with managing multimedia resources (images, audio) and processing complex logic. Storing these directly on web servers leads to bandwidth congestion during peak traffic, while the lack of synchronized backup mechanisms makes user learning data (quiz results, favorited flashcards) vulnerable to loss during server failures.
 
+Proposed Solution
+A distributed architecture is proposed to decouple processing flows: utilizing a CDN for static content distribution, relational databases with synchronous replication between Availability Zones, and a Serverless architecture to automate background tasks such as image compression, notification processing, and Text-to-Speech (TTS) conversion.
+
+Benefits and ROI
+The solution establishes a robust foundation capable of scaling from small groups to a large learning community. Automation significantly reduces manual overhead in content management and system monitoring. The estimated monthly operational cost is approximately $152.78 (based on Multi-AZ and NAT Gateway configurations), ensuring long-term operational stability and efficiency.
 ### The Solution
 The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
 
@@ -28,88 +31,103 @@ The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway f
 The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+The platform utilizes a distributed architecture with specialized AWS services, housed within a Virtual Private Cloud (VPC) with clear subnet segmentation across two Availability Zones.
+<img width="975" height="507" alt="image" src="https://github.com/user-attachments/assets/3a82fe9f-717b-40af-87cb-50901cd9a45e" />
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+AWS Services Used
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+AWS VPC: Virtual network with Public/Private Subnets across 2 AZs.
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+Amazon EC2 (ARM64): Handles Backend logic.
+
+Application Load Balancer (ALB): Balances traffic for EC2 instances.
+
+Amazon RDS (PostgreSQL): Multi-AZ relational database.
+
+Amazon S3 & CloudFront: Secure static asset distribution.
+
+AWS Lambda & EventBridge: Automated task processing and scheduling.
+
+Amazon Polly: AI-integrated Text-to-Speech feature.
+
+CloudWatch & X-Ray: Performance monitoring and API trace analysis.
+
+Component Design
+
+Edge Layer: Route 53 and WAF protect the application from malicious access.
+
+Processing Layer: EC2 instances reside in Private Subnets for maximum security, receiving traffic only from the ALB.
+
+Data Layer: RDS PostgreSQL with synchronous replication ensures data consistency.
+
+AI/Automation Layer: Lambda, triggered by EventBridge, handles notifications and system updates.
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+Implementation Phases
 
+Research & Design: Database Schema design, ERD mapping, and UI/UX optimization on Figma.
+
+Network Infrastructure: Configuration of VPC, Subnets, Internet Gateway, and NAT Gateway.
+
+Resource Deployment: Configuration of EC2, ALB, S3, and CloudFront.
+
+Feature Development: Building APIs (Flashcard, Quiz), integrating Polly, Lambda, and EventBridge.
+
+Testing & Monitoring: Setting up CloudWatch, X-Ray, and conducting end-to-end testing before handover.
+
+Technical Requirements
+
+Use ARM64 architecture for EC2 to optimize cost-to-performance ratio.
+
+Strictly adhere to Security Group principles: EC2 accepts inbound traffic only from the ALB; RDS accepts inbound traffic only from EC2.
+
+Implement OAC (Origin Access Control) for S3 to restrict access solely to CloudFront.
 **Technical Requirements**
 - Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
 - Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
 
 ### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+Weeks 1–3: Build network foundation and data infrastructure.
+
+Weeks 4–8: Develop Backend services, AI/ML features, and data analytics.
+
+Weeks 9–10: Finalize core features, integrate monitoring, and AI TTS.
+
+Weeks 11–12: Deploy community interaction features, system optimization, and project handover.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+Estimated monthly operational costs in the Singapore region (ap-southeast-1) based on On-Demand pricing:
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+RDS Multi-AZ: ~$46.40
 
-Total: $0.7/month, $8.40/12 months
+NAT Gateway (x2): ~$65.70
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+ALB: ~$16.42
+
+EC2 (x2), S3, CloudFront, WAF, Lambda, Polly: ~$23.66
+
+Total: ~$152.18 / month.
 
 ### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+Risk Matrix
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+High NAT Gateway costs: Medium probability, High impact.
 
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+Security Group connectivity errors: Low probability, Medium impact.
 
+CloudFront bandwidth overage: Low probability, Medium impact.
+
+Mitigation Strategies
+
+Optimize NAT Gateway configurations during the development phase.
+
+Rigorously verify Security Group rules prior to deployment.
+
+Configure precise cache behavior in CloudFront to prevent unnecessary bandwidth consumption.
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
+Technical Improvements: A highly available, stable system with Multi-AZ architecture, well-suited for interactive user learning.
+Long-term Value: A structured data platform that is easily scalable and ready to integrate advanced AI services in the future.
 #### Long-term Value
 1-year data foundation for AI research.  
 Reusable for future projects.
