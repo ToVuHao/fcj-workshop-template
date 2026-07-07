@@ -1,59 +1,33 @@
 ---
 title: "Worklog Tuần 1"
-date: 2024-01-01
+date: 2026-04-20
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu cho tuần 1:
 
-### Mục tiêu tuần 1:
+* Thiết lập hoàn thiện tài khoản AWS và tổ chức nhóm làm việc.
+* Nhận gói tín dụng $200 và xây dựng chiến lược quản lý chi phí.
+* Nắm vững kiến thức nền tảng về mô hình điện toán đám mây.
+* Cài đặt và cấu hình thành công AWS CLI.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Nhiệm vụ cho tuần 1:
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Ngày | Nhiệm vụ | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| :---: | :--- | :---: | :---: | :--- |
+| 2 | Hoàn tất đăng ký tài khoản AWS<br>Thành lập nhóm | 20/04/2026 | 21/04/2026 | [Video hướng dẫn ](#) |
+| 3 | Thực hiện nhiệm vụ để nhận $200 Credit | 21/04/2026 | 22/04/2026 | [Hướng dẫn nhận $200 Credit](#) |
+| 4 | Xây dựng chiến lược quản lý ngân sách và tối ưu hóa chi phí. | 22/04/2026 | 23/04/2026 | [Quản lý Chi phí AWS](#) |
+| 5 | Nghiên cứu kiến thức nền tảng về các mô hình triển khai điện toán đám mây (công cộng, riêng tư, lai) và các dịch vụ đám mây (SaaS, PaaS, IaaS). | 23/04/2026 | 24/04/2026 | [Tổng quan về Điện toán đám mây](#) |
+| 6 | Thiết lập và cấu hình môi trường AWS CLI. | 24/04/2026 | 26/04/2026 | [Hướng dẫn cài đặt và cấu hình AWS CLI](#) |
 
+### Thành tích tuần 1:
 
-### Kết quả đạt được tuần 1:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* **Vận hành dịch vụ AWS:**
+    * Thực hiện thao tác quản lý, kiểm tra cấu hình tài khoản và thông tin vận hành.
+    * Thực hiện truy vấn các khu vực (Regions) và quản lý tài nguyên EC2 cùng hệ thống khóa bảo mật.
+    * Giám sát trạng thái các dịch vụ đang hoạt động.
+* **Kỹ năng kỹ thuật:** Làm chủ các lệnh và thao tác cơ bản trong môi trường AWS CLI.
+* **Nền tảng kiến thức:** Xây dựng vững chắc tư duy về điện toán đám mây và hiểu rõ các dịch vụ chủ chốt của hệ sinh thái AWS.
