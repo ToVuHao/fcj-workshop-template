@@ -1,44 +1,45 @@
 ---
 title: "Chia sẻ, đóng góp ý kiến"
-date: 2024-01-01
+date: 2024-07-10
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 >Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud AI Journey, giúp team FCAJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:
 
-### Đánh giá chung
+### Tổng quan đánh giá
 
 **1. Môi trường làm việc**  
-Môi trường làm việc rất thân thiện và cởi mở. Các thành viên trong FCAJ luôn sẵn sàng hỗ trợ khi mình gặp khó khăn, kể cả ngoài giờ làm việc. Không gian làm việc gọn gàng, thoải mái, giúp mình tập trung tốt hơn. Tuy nhiên, mình nghĩ có thể bổ sung thêm một số buổi giao lưu hoặc team bonding để mọi người hiểu nhau hơn.
+-Trải nghiệm: Môi trường làm việc cởi mở, văn hóa hỗ trợ lẫn nhau được duy trì rất tốt. Các thành viên luôn sẵn lòng giúp đỡ ngay cả ngoài giờ hành chính.
+-Đề xuất: Không gian làm việc hiện tại khá tập trung. Để gắn kết hơn, có thể tổ chức thêm các buổi technical sharing hoặc các hoạt động team building định kỳ.
 
 **2. Sự hỗ trợ của mentor / team admin**  
-Mentor hướng dẫn rất chi tiết, giải thích rõ ràng khi mình chưa hiểu và luôn khuyến khích mình đặt câu hỏi. Team admin hỗ trợ các thủ tục, tài liệu và tạo điều kiện để mình làm việc thuận lợi. Mình đánh giá cao việc mentor cho phép mình thử và tự xử lý vấn đề thay vì chỉ đưa đáp án.
+Đánh giá: Mentor dẫn dắt bài bản, khuyến khích tư duy giải quyết vấn đề (problem-solving) thay vì đưa ra giải pháp trực tiếp. Team Admin hỗ trợ thủ tục hành chính rất chuyên nghiệp, giúp mình tối ưu thời gian để tập trung vào chuyên môn.
 
-**3. Sự phù hợp giữa công việc và chuyên ngành học**  
-Công việc mình được giao phù hợp với kiến thức mình đã học ở trường, đồng thời mở rộng thêm những mảng mới mà mình chưa từng được tiếp cận. Nhờ vậy, mình vừa củng cố kiến thức nền tảng, vừa học thêm kỹ năng thực tế.
+**3. Sự tương thích với chuyên ngành**  
+Đánh giá: Các đầu việc được giao có độ tương thích cao với kiến thức chuyên ngành Công nghệ thông tin. Đồng thời, chương trình tạo điều kiện để mình tiếp cận các stack công nghệ thực tế mà môi trường đại học chưa có điều kiện khai thác sâu.
 
 **4. Cơ hội học hỏi & phát triển kỹ năng**  
-Trong quá trình thực tập, mình học được nhiều kỹ năng mới như sử dụng công cụ quản lý dự án, kỹ năng làm việc nhóm, và cả cách giao tiếp chuyên nghiệp trong môi trường công ty. Mentor cũng chia sẻ nhiều kinh nghiệm thực tế giúp mình định hướng tốt hơn cho sự nghiệp.
+Kỹ năng đạt được: Thành thạo các công cụ quản lý dự án (Project Management tools), kỹ năng làm việc nhóm theo quy trình chuyên nghiệp, và tư duy phát triển phần mềm trong môi trường thực tế.
 
-**5. Văn hóa & tinh thần đồng đội**  
-Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau, làm việc nghiêm túc nhưng vẫn vui vẻ. Khi có dự án gấp, mọi người cùng nhau cố gắng, hỗ trợ không phân biệt vị trí. Điều này giúp mình cảm thấy mình là một phần của tập thể, dù chỉ là thực tập sinh.
+**5.Văn hóa & Tinh thần tập thể**  
+Đánh giá: Văn hóa hướng tới sự tôn trọng và hiệu quả. Tinh thần hỗ trợ đồng đội cao, đặc biệt trong các giai đoạn cao điểm của dự án, giúp mình cảm thấy gắn kết và có trách nhiệm hơn với công việc.
 
 **6. Chính sách / phúc lợi cho thực tập sinh**  
-Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về thời gian linh hoạt khi cần thiết. Ngoài ra, việc được tham gia các buổi đào tạo nội bộ là một điểm cộng lớn.
+Đánh giá: Chính sách hỗ trợ phụ cấp và thời gian làm việc linh hoạt rất phù hợp cho sinh viên. Các buổi đào tạo nội bộ là nguồn tài nguyên quý giá cho việc nâng cao kiến thức chuyên môn.
 
 
-### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
+### Phản hồi chi tiết
+Điều hài lòng nhất: Sự tin tưởng từ Mentor trong việc giao quyền xử lý vấn đề và cơ hội tiếp xúc với các dự án thực tế.
+
+Điểm cần cải thiện: Nên xây dựng tài liệu hướng dẫn (onboarding documentation) chi tiết hơn cho người mới để rút ngắn thời gian làm quen với codebase.
+
+Đánh giá cá nhân: Chắc chắn sẽ giới thiệu chương trình này đến bạn bè cùng ngành, bởi đây là môi trường lý tưởng để "cọ xát" và nâng cao năng lực thực tế. 
 
 
 ### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
-- Bạn có muốn tiếp tục chương trình này trong tương lai?
-- Góp ý khác (tự do chia sẻ):
+Đề xuất: Thiết lập quy trình phản hồi định kỳ (1-on-1 meeting) để cập nhật tiến độ và giải đáp thắc mắc kịp thời hơn.
+
+Mong muốn: Rất mong có cơ hội tiếp tục gắn kết và đóng góp cho các giai đoạn tiếp theo của chương trình.
