@@ -1,47 +1,45 @@
 ---
 title: "Sharing and Feedback"
-date: 2024-01-01
+date: 2024-07-10
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+
 
 > Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
 
 ### Overall Evaluation
 
-**1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+**1.Working Environment**  
+Experience: The working environment was open and collaborative, with a strong culture of mutual support. Team members were always willing to help, even outside regular working hours.
+Suggestion: The current workspace is highly focused. To strengthen team bonding, more technical sharing sessions or regular team-building activities could be organized.
 
 **2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+Evaluation: The mentors provided structured guidance and encouraged a problem-solving mindset rather than offering direct solutions. The Team Admin handled administrative procedures professionally, allowing me to focus more on technical learning and project work.
 
-**3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+**3. Relevance to My Major**  
+Evaluation: The assigned tasks were highly relevant to my Information Technology background. The program also gave me the opportunity to work with real-world technology stacks that are not deeply covered in the university curriculum.
 
-**4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+**4.Learning Opportunities & Skill Development**  
+Skills Gained: I became proficient in using project management tools, improved my teamwork skills within a professional development workflow, and developed a practical software engineering mindset through real-world project experience.
 
-**5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+**5. Culture & Team Spirit**  
+Evaluation: The team culture emphasized respect, collaboration, and efficiency. Team members consistently supported one another, especially during critical project phases, which strengthened my sense of responsibility and belonging.
 
-**6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
-
----
-
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+**6.Internship Policies & Benefits**  
+Evaluation: The internship allowance and flexible working hours were well suited for students. In addition, the internal training sessions were valuable resources for enhancing technical knowledge and professional skills.
 
 ---
 
+### Detailed Feedback
+Most Satisfying Aspect: The trust my mentor placed in me by allowing me to take ownership of problem-solving, along with the opportunity to work on real-world projects.
+
+Area for Improvement: More comprehensive onboarding documentation should be prepared for new interns to help them become familiar with the codebase more quickly.
+
+Personal Recommendation: I would definitely recommend this program to my friends in the Information Technology field, as it provides an excellent environment to gain hands-on experience and strengthen practical skills.
 ### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+Suggestion: Establish regular one-on-one feedback meetings to review progress, provide guidance, and address questions in a more timely manner.
+
+Expectation: I sincerely hope to have the opportunity to continue contributing to and participating in the upcoming phases of the program.
