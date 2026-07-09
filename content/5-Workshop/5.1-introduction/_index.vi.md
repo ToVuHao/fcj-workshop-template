@@ -1,6 +1,6 @@
 ---
 title: "Giới thiệu"
-date: 2026-07-09
+date: 2026-07-08
 weight: 1
 chapter: false
 pre: "<b>5.1. </b>"
