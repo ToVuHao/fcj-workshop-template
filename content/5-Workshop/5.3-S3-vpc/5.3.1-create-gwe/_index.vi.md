@@ -18,7 +18,8 @@ Trong bước này, chúng ta sẽ tạo một VPC mới và phân chia thành c
 
 2. Chọn **Create VPC**
 
-![VPC Dashboard](/images/5-Workshop/5.3-S3-vpc/5.3.1.1.png)
+<img width="1919" height="269" alt="5 3 1 1" src="https://github.com/user-attachments/assets/12806a7a-4892-493d-885d-cd574e87647b" />
+
 
 
 1. Cấu hình VPC:
@@ -33,7 +34,8 @@ Trong bước này, chúng ta sẽ tạo một VPC mới và phân chia thành c
 
 4. Nhấn **Create VPC**
 
-![Tạo VPC](/images/5-Workshop/5.3-S3-vpc/5.3.1-vpc-created.png)
+<img width="1919" height="850" alt="5 3 1 2" src="https://github.com/user-attachments/assets/cd752d69-4f48-4b13-8dda-df3761c9562c" />
+
 
 ---
 
@@ -54,7 +56,9 @@ Public Subnet sẽ chứa EC2 instance chạy ứng dụng FlashLearn.
 
 3. Nhấn **Create subnet**
 
-![Tạo Public Subnet](/images/5-Workshop/5.3-S3-vpc/5.3.1.2.png)
+<img width="1919" height="853" alt="5 3 1 3" src="https://github.com/user-attachments/assets/7982dc75-1b3f-498c-9382-042e52aa32a8" />
+
+
 
 1. Sau khi tạo xong, **bật tính năng Auto-assign public IP**:
    - Chọn subnet `flashlearn-public-subnet`
@@ -89,8 +93,10 @@ Private Subnet sẽ chứa RDS database, không có kết nối Internet trực 
 
 4. Nhấn **Create subnet**
 
-![Tạo Private Subnets](/images/5-Workshop/5.3-S3-vpc/5.3.1.3.png)
-![Create Private Subnets](/images/5-Workshop/5.3-S3-vpc/5.3.1.4.png)
+<img width="1919" height="898" alt="5 3 1 4" src="https://github.com/user-attachments/assets/23e6c097-226b-475a-8262-4519c24ec511" />
+
+<img width="1909" height="764" alt="5 3 1-vpc-created" src="https://github.com/user-attachments/assets/00f80f14-0611-464f-9ded-e31836dad71f" />
+
 
 ---
 
