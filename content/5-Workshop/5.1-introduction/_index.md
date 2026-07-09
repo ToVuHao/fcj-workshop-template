@@ -7,7 +7,7 @@ pre: "<b>5.1. </b>"
 ---
 
 
-## What is FlashLearn?
+## What is FlashLearn??
 
 **FlashLearn** is a smart English learning web application built with **ASP.NET Core 8.0**, allowing users to:
 
@@ -25,7 +25,7 @@ The application currently runs with **SQLite** on a local environment. This work
 
 The system is designed following a **3-Tier Architecture** deployed within a **Virtual Private Cloud (VPC)** with clearly separated subnets:
 
-![FlashLearn AWS Architecture](/images/5-Workshop/5.1-Workshop-overview/aws_whiteboard.png)
+
 
 ### Core Components
 
