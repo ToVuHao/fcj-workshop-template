@@ -1,5 +1,5 @@
 ---
-title: "Cấu hình Internet Gateway & Route Tables"
+title: "Configure Internet Gateway & Route Tables"
 date: 2024-01-01
 weight: 2
 chapter: false
@@ -7,98 +7,98 @@ pre: "<b>5.3.2. </b>"
 ---
 
 
-Sau khi tạo VPC và các Subnet, chúng ta cần cấu hình **Internet Gateway** để cho phép Public Subnet kết nối ra Internet, và **Route Tables** để định tuyến lưu lượng mạng đúng hướng.
+After creating the VPC and Subnets, we need to configure an **Internet Gateway** to allow the Public Subnet to connect to the Internet, and **Route Tables** to direct network traffic correctly.
 
 ---
 
-## 1. Tạo Internet Gateway
+## 1. Create Internet Gateway
 
-**Internet Gateway (IGW)** là cổng kết nối giữa VPC và Internet.
+An **Internet Gateway (IGW)** is the gateway connecting the VPC to the Internet.
 
-1. Trong VPC Console → **Internet gateways** → **Create internet gateway**
+1. In the VPC Console → **Internet gateways** → **Create internet gateway**
 
-2. Cấu hình:
+2. Configure:
 
-| Trường       | Giá trị          |
+| Field        | Value            |
 | ------------ | ---------------- |
 | **Name tag** | `flashlearn-igw` |
 
-3. Nhấn **Create internet gateway**
+3. Click **Create internet gateway**
 
-![Tạo Internet Gateway](/images/5-Workshop/5.3-vpc/5.3.2/create-igw.png)
+![Create Internet Gateway](/images/5-Workshop/5.3-vpc/5.3.2/create-igw.png)
 
-4. Sau khi tạo, **gắn IGW vào VPC**:
-   - Chọn `flashlearn-igw` → **Actions** → **Attach to VPC**
-   - Chọn `flashlearn-vpc`
-   - Nhấn **Attach internet gateway**
+4. After creation, **attach the IGW to the VPC**:
+   - Select `flashlearn-igw` → **Actions** → **Attach to VPC**
+   - Select `flashlearn-vpc`
+   - Click **Attach internet gateway**
 
-![Gắn IGW vào VPC](/images/5-Workshop/5.3-vpc/5.3.2/attach-igw.png)
+![Attach IGW to VPC](/images/5-Workshop/5.3-vpc/5.3.2/attach-igw.png)
 
 ---
 
-## 2. Tạo Route Table cho Public Subnet
+## 2. Create Route Table for Public Subnet
 
-**Route Table** xác định lưu lượng mạng sẽ đi đâu.
+A **Route Table** defines where network traffic is directed.
 
 1. **Route tables** → **Create route table**
 
-2. Cấu hình:
+2. Configure:
 
-| Trường   | Giá trị                |
+| Field    | Value                  |
 | -------- | ---------------------- |
 | **Name** | `flashlearn-public-rt` |
 | **VPC**  | `flashlearn-vpc`       |
 
-3. Nhấn **Create route table**
+3. Click **Create route table**
 
-4. **Thêm route đến Internet**: Chọn `flashlearn-public-rt` → tab **Routes** → **Edit routes** → **Add route**
+4. **Add a route to the Internet**: Select `flashlearn-public-rt` → **Routes** tab → **Edit routes** → **Add route**
 
 | Destination | Target           |
 | ----------- | ---------------- |
 | `0.0.0.0/0` | `flashlearn-igw` |
 
-5. Nhấn **Save changes**
+5. Click **Save changes**
 
-![Thêm Route Internet](/images/5-Workshop/5.3-vpc/5.3.2/add-route.png)
+![Add Internet Route](/images/5-Workshop/5.3-vpc/5.3.2/add-route.png)
 
-6. **Gắn vào Public Subnet**: Tab **Subnet associations** → **Edit subnet associations** → Chọn `flashlearn-public-subnet` → **Save associations**
+6. **Associate with Public Subnet**: **Subnet associations** tab → **Edit subnet associations** → Select `flashlearn-public-subnet` → **Save associations**
 
 ---
 
-## 3. Tạo Security Group cho EC2
+## 3. Create Security Group for EC2
 
-**Security Group** hoạt động như tường lửa ảo, kiểm soát lưu lượng vào/ra EC2.
+A **Security Group** acts as a virtual firewall, controlling inbound and outbound traffic for EC2.
 
 1. **Security Groups** → **Create security group**
 
-2. Cấu hình:
+2. Configure:
 
-| Trường                  | Giá trị                             |
+| Field                   | Value                               |
 | ----------------------- | ----------------------------------- |
 | **Security group name** | `flashlearn-ec2-sg`                 |
 | **Description**         | `Security group for FlashLearn EC2` |
 | **VPC**                 | `flashlearn-vpc`                    |
 
-3. **Inbound rules** — Thêm các rule sau:
+3. **Inbound rules** — Add the following rules:
 
-| Type       | Protocol | Port | Source    | Mô tả                 |
+| Type       | Protocol | Port | Source    | Description           |
 | ---------- | -------- | ---- | --------- | --------------------- |
-| HTTP       | TCP      | 80   | 0.0.0.0/0 | HTTP từ Internet      |
-| HTTPS      | TCP      | 443  | 0.0.0.0/0 | HTTPS từ Internet     |
+| HTTP       | TCP      | 80   | 0.0.0.0/0 | HTTP from Internet    |
+| HTTPS      | TCP      | 443  | 0.0.0.0/0 | HTTPS from Internet   |
 | Custom TCP | TCP      | 5000 | 0.0.0.0/0 | ASP.NET Core app port |
-| SSH        | TCP      | 22   | My IP     | SSH từ máy của bạn    |
+| SSH        | TCP      | 22   | My IP     | SSH from your machine |
 
-4. Nhấn **Create security group**
+4. Click **Create security group**
 
 ---
 
-## 4. Tạo Security Group cho RDS
+## 4. Create Security Group for RDS
 
 1. **Create security group**
 
-2. Cấu hình:
+2. Configure:
 
-| Trường                  | Giá trị                             |
+| Field                   | Value                               |
 | ----------------------- | ----------------------------------- |
 | **Security group name** | `flashlearn-rds-sg`                 |
 | **Description**         | `Security group for FlashLearn RDS` |
@@ -106,20 +106,20 @@ Sau khi tạo VPC và các Subnet, chúng ta cần cấu hình **Internet Gatewa
 
 3. **Inbound rules**:
 
-| Type       | Protocol | Port | Source              | Mô tả                    |
-| ---------- | -------- | ---- | ------------------- | ------------------------ |
-| PostgreSQL | TCP      | 5432 | `flashlearn-ec2-sg` | Chỉ cho phép EC2 kết nối |
+| Type       | Protocol | Port | Source              | Description                |
+| ---------- | -------- | ---- | ------------------- | -------------------------- |
+| PostgreSQL | TCP      | 5432 | `flashlearn-ec2-sg` | Allow EC2 connections only |
 
-> 🔒 **Lưu ý bảo mật**: Source của rule PostgreSQL phải là **Security Group của EC2** (không phải IP), đảm bảo chỉ EC2 mới truy cập được database.
+> 🔒 **Security Note**: The source for the PostgreSQL rule must be the **EC2 Security Group** (not an IP address), ensuring only EC2 can access the database.
 
-4. Nhấn **Create security group**
+4. Click **Create security group**
 
 ---
 
-## Kết quả
+## Result
 
-Sau bước này, bạn đã có:
-- ✅ Internet Gateway `flashlearn-igw` gắn vào VPC
-- ✅ Route Table `flashlearn-public-rt` định tuyến traffic ra Internet
-- ✅ Security Group `flashlearn-ec2-sg` cho phép HTTP/HTTPS/SSH
-- ✅ Security Group `flashlearn-rds-sg` chỉ cho phép EC2 kết nối vào PostgreSQL
+After this step, you will have:
+- ✅ Internet Gateway `flashlearn-igw` attached to the VPC
+- ✅ Route Table `flashlearn-public-rt` routing traffic to the Internet
+- ✅ Security Group `flashlearn-ec2-sg` allowing HTTP/HTTPS/SSH
+- ✅ Security Group `flashlearn-rds-sg` allowing only EC2 to connect to PostgreSQL
