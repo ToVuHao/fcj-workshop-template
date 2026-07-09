@@ -117,7 +117,7 @@ Build succeeded.
 ## Kết quả
 
 Sau bước này, bạn đã có:
-- ✅ AWS CLI đã cấu hình với IAM User
-- ✅ .NET SDK 8.0 đã cài đặt
-- ✅ Git và SSH Client sẵn sàng
-- ✅ Source code FlashLearn đã clone về máy
+-  AWS CLI đã cấu hình với IAM User
+- .NET SDK 8.0 đã cài đặt
+-  Git và SSH Client sẵn sàng
+-  Source code FlashLearn đã clone về máy
