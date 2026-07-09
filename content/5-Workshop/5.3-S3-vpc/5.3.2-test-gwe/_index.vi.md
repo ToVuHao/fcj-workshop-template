@@ -1,82 +1,125 @@
 ---
-title : "Kiểm tra Gateway Endpoint"
-date : 2024-01-01 
-weight : 2
-chapter : false
-pre : " <b> 5.3.2 </b> "
+title: "Cấu hình Internet Gateway & Route Tables"
+date: 2024-01-01
+weight: 2
+chapter: false
+pre: "<b>5.3.2. </b>"
 ---
 
-#### Tạo S3 bucket
 
-1. Đi đến S3 management console
-2. Trong Bucket console, chọn **Create bucket**
+Sau khi tạo VPC và các Subnet, chúng ta cần cấu hình **Internet Gateway** để cho phép Public Subnet kết nối ra Internet, và **Route Tables** để định tuyến lưu lượng mạng đúng hướng.
 
-![Create bucket](/images/5-Workshop/5.3-S3-vpc/create-bucket.png)
+---
 
-3. Trong Create bucket console
-+ Đặt tên bucket: chọn 1 tên mà không bị trùng trong phạm vi toàn cầu (gợi ý: lab\<số-lab\>\<tên-bạn\>)
+## 1. Tạo Internet Gateway
 
-![Bucket name](/images/5-Workshop/5.3-S3-vpc/bucket-name.png)
+**Internet Gateway (IGW)** là cổng kết nối giữa VPC và Internet.
 
+1. Trong VPC Console → **Internet gateways** → **Create internet gateway**
 
-+ Giữ nguyên giá trị của các fields khác (default)
-+ Kéo chuột xuống và chọn **Create bucket**
+2. Cấu hình:
 
-![Create](/images/5-Workshop/5.3-S3-vpc/create-button.png)    
+| Trường       | Giá trị          |
+| ------------ | ---------------- |
+| **Name tag** | `flashlearn-igw` |
 
-+ Tạo thành công S3 bucket
+3. Nhấn **Create internet gateway**
 
-![Success](/images/5-Workshop/5.3-S3-vpc/bucket-success.png)
+![Tạo Internet Gateway](/images/5-Workshop/5.3-vpc/5.3.2/create-igw.png)
 
-#### Kết nối với EC2 bằng session manager
+4. Sau khi tạo, **gắn IGW vào VPC**:
+   - Chọn `flashlearn-igw` → **Actions** → **Attach to VPC**
+   - Chọn `flashlearn-vpc`
+   - Nhấn **Attach internet gateway**
 
-+ Trong workshop này, bạn sẽ dùng AWS Session Manager để kết nối đến các EC2 instances. Session Manager là 1 tính năng trong dịch vụ Systems Manager được quản lý hoàn toàn bởi AWS. System manager cho phép bạn quản lý Amazon EC2 instances và các máy ảo on-premises (VMs)thông qua 1 browser-based shell. Session Manager cung cấp khả năng quản lý phiên bản an toàn và có thể kiểm tra mà không cần mở cổng vào, duy trì máy chủ bastion host hoặc quản lý khóa SSH.
+![Gắn IGW vào VPC](/images/5-Workshop/5.3-vpc/5.3.2/attach-igw.png)
 
-+ First Cloud AI Journey [Lab](https://000058.awsstudygroup.com/1-introduce/) để hiểu sâu hơn về Session manager.
+---
 
-1. Trong AWS Management Console, gõ Systems Manager trong ô tìm kiếm và nhấn Enter:
+## 2. Tạo Route Table cho Public Subnet
 
-![system manager](/images/5-Workshop/5.3-S3-vpc/sm.png)
+**Route Table** xác định lưu lượng mạng sẽ đi đâu.
 
-2. Từ **Systems Manager** menu, tìm **Node Management** ở thanh bên trái và chọn **Session Manager**:
+1. **Route tables** → **Create route table**
 
-![system manager](/images/5-Workshop/5.3-S3-vpc/sm1.png)
+2. Cấu hình:
 
-3. Click Start Session, và chọn EC2 instance tên **Test-Gateway-Endpoint**. 
-{{% notice info %}}
-Phiên bản EC2 này đã chạy trong "VPC cloud" và sẽ được dùng để kiểm tra khả năng kết nối với Amazon S3 thông qua điểm cuối Cổng mà bạn vừa tạo (s3-gwe). {{% /notice %}}
+| Trường   | Giá trị                |
+| -------- | ---------------------- |
+| **Name** | `flashlearn-public-rt` |
+| **VPC**  | `flashlearn-vpc`       |
 
-![Start session](/images/5-Workshop/5.3-S3-vpc/start-session.png)
+3. Nhấn **Create route table**
 
-Session Manager sẽ mở browser tab mới với shell prompt: sh-4.2 $
+4. **Thêm route đến Internet**: Chọn `flashlearn-public-rt` → tab **Routes** → **Edit routes** → **Add route**
 
-![Success](/images/5-Workshop/5.3-S3-vpc/start-session-success.png)
+| Destination | Target           |
+| ----------- | ---------------- |
+| `0.0.0.0/0` | `flashlearn-igw` |
 
-Bạn đã bắt đầu phiên kết nối đến EC2 trong VPC Cloud thành công. Trong bước tiếp theo, chúng ta sẽ tạo một  S3 bucket và một tệp trong đó.
-#### Create a file and upload to s3 bucket
+5. Nhấn **Save changes**
 
-1. Đổi về ssm-user's thư mục bằng lệnh "cd ~" 
+![Thêm Route Internet](/images/5-Workshop/5.3-vpc/5.3.2/add-route.png)
 
-![Change user's dir](/images/5-Workshop/5.3-S3-vpc/cli1.png)
+6. **Gắn vào Public Subnet**: Tab **Subnet associations** → **Edit subnet associations** → Chọn `flashlearn-public-subnet` → **Save associations**
 
-2. Tạo 1 file để kiểm tra bằng lệnh "fallocate -l 1G testfile.xyz", 1 file tên "testfile.xyz" có kích thước 1GB sẽ được tạo.
+---
 
-![Create file](/images/5-Workshop/5.3-S3-vpc/cli-file.png)
+## 3. Tạo Security Group cho EC2
 
-3. Tải file mình vừa tạo lên S3 với lệnh "aws s3 cp testfile.xyz s3://your-bucket-name". Thay your-bucket-name bằng tên S3 bạn đã tạo.
+**Security Group** hoạt động như tường lửa ảo, kiểm soát lưu lượng vào/ra EC2.
 
-![Uploaded](/images/5-Workshop/5.3-S3-vpc/uploaded.png)
+1. **Security Groups** → **Create security group**
 
-Bạn đã tải thành công tệp lên bộ chứa S3 của mình. Bây giờ bạn có thể kết thúc session.
+2. Cấu hình:
 
-#### Kiểm tra object trong S3 bucket
+| Trường                  | Giá trị                             |
+| ----------------------- | ----------------------------------- |
+| **Security group name** | `flashlearn-ec2-sg`                 |
+| **Description**         | `Security group for FlashLearn EC2` |
+| **VPC**                 | `flashlearn-vpc`                    |
 
-1. Đi đến S3 console.  
-2. Click tên s3 bucket của bạn
-3. Trong Bucket console, bạn sẽ thấy tệp bạn đã tải lên S3 bucket của mình
+3. **Inbound rules** — Thêm các rule sau:
 
-![Check S3](/images/5-Workshop/5.3-S3-vpc/check-s3-bucket.png)
+| Type       | Protocol | Port | Source    | Mô tả                 |
+| ---------- | -------- | ---- | --------- | --------------------- |
+| HTTP       | TCP      | 80   | 0.0.0.0/0 | HTTP từ Internet      |
+| HTTPS      | TCP      | 443  | 0.0.0.0/0 | HTTPS từ Internet     |
+| Custom TCP | TCP      | 5000 | 0.0.0.0/0 | ASP.NET Core app port |
+| SSH        | TCP      | 22   | My IP     | SSH từ máy của bạn    |
 
-#### Tóm tắt
+4. Nhấn **Create security group**
 
-Chúc mừng bạn đã hoàn thành truy cập S3 từ VPC. Trong phần này, bạn đã tạo gateway endpoint cho Amazon S3 và sử dụng AWS CLI để tải file lên. Quá trình tải lên hoạt động vì gateway endpoint cho phép giao tiếp với S3 mà không cần Internet gateway gắn vào "VPC Cloud". Điều này thể hiện chức năng của gateway endpoint như một đường dẫn an toàn đến S3 mà không cần đi qua pub    lic Internet.
+---
+
+## 4. Tạo Security Group cho RDS
+
+1. **Create security group**
+
+2. Cấu hình:
+
+| Trường                  | Giá trị                             |
+| ----------------------- | ----------------------------------- |
+| **Security group name** | `flashlearn-rds-sg`                 |
+| **Description**         | `Security group for FlashLearn RDS` |
+| **VPC**                 | `flashlearn-vpc`                    |
+
+3. **Inbound rules**:
+
+| Type       | Protocol | Port | Source              | Mô tả                    |
+| ---------- | -------- | ---- | ------------------- | ------------------------ |
+| PostgreSQL | TCP      | 5432 | `flashlearn-ec2-sg` | Chỉ cho phép EC2 kết nối |
+
+> 🔒 **Lưu ý bảo mật**: Source của rule PostgreSQL phải là **Security Group của EC2** (không phải IP), đảm bảo chỉ EC2 mới truy cập được database.
+
+4. Nhấn **Create security group**
+
+---
+
+## Kết quả
+
+Sau bước này, bạn đã có:
+- ✅ Internet Gateway `flashlearn-igw` gắn vào VPC
+- ✅ Route Table `flashlearn-public-rt` định tuyến traffic ra Internet
+- ✅ Security Group `flashlearn-ec2-sg` cho phép HTTP/HTTPS/SSH
+- ✅ Security Group `flashlearn-rds-sg` chỉ cho phép EC2 kết nối vào PostgreSQL
