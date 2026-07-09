@@ -1,40 +1,100 @@
 ---
-title : "Create a gateway endpoint"
-date : 2024-01-01 
-weight : 1
-chapter : false
-pre : " <b> 5.3.1 </b> "
+title: "Create VPC & Subnets"
+date: 2024-01-01
+weight: 1
+chapter: false
+pre: "<b>5.3.1. </b>"
 ---
 
-1. Open the [Amazon VPC console](https://us-east-1.console.aws.amazon.com/vpc/home?region=us-east-1#Home:)
-2. In the navigation pane, choose **Endpoints**, then click **Create Endpoint**:
 
-{{% notice note %}}
-You will see **6 existing VPC endpoints** that support **AWS Systems Manager (SSM)**. These endpoints were deployed automatically by the **CloudFormation Templates** for this workshop.
-{{% /notice %}}
+In this step, we will create a new VPC and divide it into specific subnets for each application tier.
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/endpoints.png)
+---
 
-3. In the Create endpoint console:
-+ Specify name of the endpoint: ```s3-gwe```
-+ In service category, choose **AWS services**
+## 1. Create VPC
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/create-s3-gwe1.png)
+1. Log in to **AWS Console** → Search for **VPC** → Select **VPC**
 
-+ In **Services**, type ```s3``` in the search box and choose the service with type **gateway**
+2. Click **Create VPC**
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/services.png)
+![VPC Dashboard](/images/5-Workshop/5.3-S3-vpc/5.3.1.1.png)
 
-+ For VPC, select **VPC Cloud** from the drop-down.
-+ For **Configure route tables**, select the route table that is already associated with **two subnets** (note: this is not the main route table for the VPC, but a second route table created by CloudFormation).
+3. Configure the VPC:
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/vpc.png)
+| Field                   | Value              |
+| ----------------------- | ------------------ |
+| **Resources to create** | VPC only           |
+| **Name tag**            | `flashlearn-vpc`   |
+| **IPv4 CIDR block**     | `10.0.0.0/16`      |
+| **IPv6 CIDR block**     | No IPv6 CIDR block |
+| **Tenancy**             | Default            |
 
-+ **For Policy**, leave the default option, **Full Access**, to allow full access to the service. You will deploy **a VPC endpoint policy** in a later lab module to demonstrate restricting access to **S3 buckets** based on policies.
+4. Click **Create VPC**
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/policy.png)
+![Create VPC](/images/5-Workshop/5.3-S3-vpc/5.3.1-vpc-created.png)
 
-+ Do not add a tag to the VPC endpoint at this time.
-+ Click **Create endpoint**, then click x after receiving a successful creation message.
+---
 
-![endpoint](/images/5-Workshop/5.3-S3-vpc/complete.png)
+## 2. Create Public Subnet
+
+The Public Subnet will host the EC2 instance running the FlashLearn application.
+
+1. In the VPC Console → **Subnets** → **Create subnet**
+
+2. Configure:
+
+| Field                 | Value                      |
+| --------------------- | -------------------------- |
+| **VPC ID**            | Select `flashlearn-vpc`    |
+| **Subnet name**       | `flashlearn-public-subnet` |
+| **Availability Zone** | `ap-southeast-1a`          |
+| **IPv4 CIDR block**   | `10.0.1.0/24`              |
+
+3. Click **Create subnet**
+
+![Create Public Subnet](/images/5-Workshop/5.3-S3-vpc/5.3.1.2.png)
+
+4. After creation, **enable Auto-assign public IP**:
+   - Select subnet `flashlearn-public-subnet`
+   - **Actions** → **Edit subnet settings**
+   - Check **Enable auto-assign public IPv4 address**
+   - Click **Save**
+
+---
+
+## 3. Create Private Subnets
+
+Private Subnets will host the RDS database, with no direct Internet connection.
+
+1. **Subnets** → **Create subnet**
+
+2. Configure the first subnet:
+
+| Field                 | Value                         |
+| --------------------- | ----------------------------- |
+| **VPC ID**            | Select `flashlearn-vpc`       |
+| **Subnet name**       | `flashlearn-private-subnet-1` |
+| **Availability Zone** | `ap-southeast-1a`             |
+| **IPv4 CIDR block**   | `10.0.2.0/24`                 |
+
+3. Click **Add new subnet** to add a second subnet (RDS requires at least 2 AZs):
+
+| Field                 | Value                         |
+| --------------------- | ----------------------------- |
+| **Subnet name**       | `flashlearn-private-subnet-2` |
+| **Availability Zone** | `ap-southeast-1b`             |
+| **IPv4 CIDR block**   | `10.0.3.0/24`                 |
+
+4. Click **Create subnet**
+
+![Create Private Subnets](/images/5-Workshop/5.3-S3-vpc/5.3.1.3.png)
+![Create Private Subnets](/images/5-Workshop/5.3-S3-vpc/5.3.1.4.png)
+---
+
+## Result
+
+After this step, you will have:
+-  VPC `flashlearn-vpc` with CIDR `10.0.0.0/16`
+-  Public Subnet `10.0.1.0/24` in `ap-southeast-1a`
+-  Private Subnet 1 `10.0.2.0/24` in `ap-southeast-1a`
+-  Private Subnet 2 `10.0.3.0/24` in `ap-southeast-1b`
