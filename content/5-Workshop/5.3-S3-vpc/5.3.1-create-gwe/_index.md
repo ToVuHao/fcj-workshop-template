@@ -32,7 +32,7 @@ In this step, we will create a new VPC and divide it into specific subnets for e
 
 4. Click **Create VPC**
 
-![Tạo VPC](/images/5-Workshop/5.3-S3-vpc/5.3.1-vpc-created.png)
+![Create VPC](/images/5-Workshop/5.3-S3-vpc/5.3.1-vpc-created.png)
 
 ---
 
@@ -53,7 +53,7 @@ The Public Subnet will host the EC2 instance running the FlashLearn application.
 
 3. Click **Create subnet**
 
-![Tạo Public Subnet](/images/5-Workshop/5.3-S3-vpc/5.3.1.2.png)
+![Create Public Subnet](/images/5-Workshop/5.3-S3-vpc/5.3.1.2.png)
 
 
 4. After creation, **enable Auto-assign public IP**:
@@ -89,7 +89,7 @@ Private Subnets will host the RDS database, with no direct Internet connection.
 
 4. Click **Create subnet**
 
-![Tạo Private Subnets](/images/5-Workshop/5.3-S3-vpc/5.3.1.3.png)
+![Create Private Subnets](/images/5-Workshop/5.3-S3-vpc/5.3.1.3.png)
 ![Create Private Subnets](/images/5-Workshop/5.3-S3-vpc/5.3.1.4.png)
 
 
