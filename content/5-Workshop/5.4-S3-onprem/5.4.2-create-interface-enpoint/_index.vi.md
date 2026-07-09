@@ -1,43 +1,134 @@
 ---
-title : "Tạo một S3 Interface endpoint"
-date : 2024-01-01
-weight : 2
-chapter : false
-pre : " <b> 5.4.2 </b> "
+title: "Migrate & Seed dữ liệu"
+date: 2024-01-01
+weight: 2
+chapter: false
+pre: "<b>5.4.2. </b>"
 ---
 
-Trong phần này, bạn sẽ tạo và kiểm tra Interface Endpoint  S3 bằng cách sử dụng môi trường truyền thống mô phỏng.
 
-1. Quay lại Amazon VPC menu. Trong thanh điều hướng bên trái, chọn Endpoints, sau đó click Create Endpoint.
+Sau khi RDS đã sẵn sàng, chúng ta cần chạy **Entity Framework Core Migrations** để tạo schema database và seed dữ liệu mẫu.
 
-2. Trong Create endpoint console:
-+ Đặt tên interface endpoint
-+ Trong Service category, chọn **aws services** 
+---
 
-![name](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint1.png)
+## 1. Cập nhật Connection String
 
-3.  Trong Search box, gõ S3 và nhấn Enter. Chọn endpoint có tên com.amazonaws.us-east-1.s3. Đảm bảo rằng cột Type có giá trị Interface.
+Trên máy tính local, cập nhật file `appsettings.json` của project FlashLearn:
 
-![service](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint2.png)
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=flashlearn-db.xxxx.ap-southeast-1.rds.amazonaws.com;Port=5432;Database=flashlearn;Username=flashlearn_admin;Password=<mật khẩu của bạn>;SSL Mode=Require;Trust Server Certificate=true"
+  }
+}
+```
 
-4. Đối với VPC, chọn VPC Cloud từ drop-down.
-{{% notice warning %}}
-Đảm bảo rằng bạn chọn "VPC Cloud" và không phải "VPC On-prem"
-{{% /notice %}}
-+ Mở rộng **Additional settings** và đảm bảo rằng Enable DNS name *không* được chọn (sẽ sử dụng điều này trong phần tiếp theo của workshop)
+> ⚠️ Thay `flashlearn-db.xxxx.ap-southeast-1.rds.amazonaws.com` bằng Endpoint thực tế bạn đã lưu ở bước 5.4.1
 
-![vpc](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint3.png)
+---
 
-5. Chọn 2 subnets trong AZs sau: us-east-1a and us-east-1b
+## 2. Cài đặt PostgreSQL Provider
 
-![subnets](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint4.png)
+Đảm bảo project đã có package `Npgsql.EntityFrameworkCore.PostgreSQL`:
 
-6. Đối với Security group, chọn SGforS3Endpoint:
+```bash
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+```
 
-![sg](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint5.png)
+Cập nhật `Program.cs` để dùng PostgreSQL thay vì SQLite:
 
-7. Giữ default policy - full access và click Create endpoint
+```csharp
+// Thay thế dòng SQLite cũ:
+// builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//     options.UseSqlite(connectionString));
 
-![success](/images/5-Workshop/5.4-S3-onprem/s3-interface-endpoint-success.png)
+// Bằng PostgreSQL:
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+```
 
-Chúc mừng bạn đã tạo thành công S3 interface endpoint. Ở bước tiếp theo, chúng ta sẽ kiểm tra interface endpoint.
+---
+
+## 3. Tạo Migration mới (nếu cần)
+
+Nếu chưa có Migration cho PostgreSQL:
+
+```bash
+dotnet ef migrations add InitialPostgreSQL
+```
+
+---
+
+## 4. Kết nối EC2 vào RDS để chạy Migration
+
+> 💡 Vì RDS ở Private Subnet, bạn phải SSH vào EC2 trước rồi mới chạy migration từ EC2.
+
+**Bước 1**: SSH vào EC2 (sẽ tạo ở bước 5.5):
+
+```bash
+ssh -i flashlearn-key.pem ubuntu@<EC2-Public-IP>
+```
+
+**Bước 2**: Trên EC2, publish project và chạy migration:
+
+```bash
+# Clone source code trên EC2
+git clone <repo-url>
+cd WebhocTiengAnhFlashLearn
+
+# Cài .NET SDK
+sudo snap install dotnet-sdk --classic --channel=8.0
+
+# Chạy EF migrations
+export ConnectionStrings__DefaultConnection="Host=<RDS-Endpoint>;Port=5432;Database=flashlearn;Username=flashlearn_admin;Password=<password>;SSL Mode=Require;Trust Server Certificate=true"
+
+dotnet ef database update
+```
+
+**Bước 3**: Kiểm tra migration thành công:
+
+```bash
+# Kết nối vào PostgreSQL từ EC2
+psql -h <RDS-Endpoint> -U flashlearn_admin -d flashlearn
+
+# Xem danh sách tables đã tạo
+\dt
+
+# Kết quả mong đợi:
+#  Schema |        Name         | Type  |      Owner       
+# --------+---------------------+-------+------------------
+#  public | AspNetRoles         | table | flashlearn_admin
+#  public | AspNetUsers         | table | flashlearn_admin
+#  public | Cards               | table | flashlearn_admin
+#  public | Decks               | table | flashlearn_admin
+#  public | UserProgress        | table | flashlearn_admin
+```
+
+---
+
+## 5. Seed dữ liệu mẫu (tùy chọn)
+
+Nếu ứng dụng có DbInitializer, chạy lệnh sau để seed dữ liệu ban đầu:
+
+```bash
+dotnet run --seed
+```
+
+Hoặc chèn dữ liệu mẫu trực tiếp qua psql:
+
+```sql
+-- Chèn bộ flashcard mẫu
+INSERT INTO "Decks" ("Id", "Name", "Description", "CreatedAt", "UserId")
+VALUES 
+  (gen_random_uuid(), 'Từ vựng cơ bản A1', '500 từ vựng tiếng Anh cơ bản', NOW(), NULL),
+  (gen_random_uuid(), 'Động từ bất quy tắc', '100 động từ bất quy tắc thông dụng', NOW(), NULL);
+```
+
+---
+
+## Kết quả
+
+Sau bước này, bạn đã có:
+- ✅ Connection String đã cập nhật trỏ đến RDS PostgreSQL
+- ✅ Schema database đã được tạo thông qua EF Core Migrations
+- ✅ Dữ liệu mẫu đã được seed vào database
