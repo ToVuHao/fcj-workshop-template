@@ -1,6 +1,6 @@
 ---
 title: "Configure Internet Gateway & Route Tables"
-date: 2024-01-01
+date: 2026-07-09
 weight: 2
 chapter: false
 pre: "<b>5.3.2. </b>"
@@ -25,14 +25,14 @@ An **Internet Gateway (IGW)** is the gateway connecting the VPC to the Internet.
 
 3. Click **Create internet gateway**
 
-![Create Internet Gateway](/images/5-Workshop/5.3-vpc/5.3.2/create-igw.png)
+![Create Internet Gateway](/images/5-Workshop/5.3-vpc/5.3.2/1.png)
 
 4. After creation, **attach the IGW to the VPC**:
    - Select `flashlearn-igw` → **Actions** → **Attach to VPC**
    - Select `flashlearn-vpc`
    - Click **Attach internet gateway**
 
-![Attach IGW to VPC](/images/5-Workshop/5.3-vpc/5.3.2/attach-igw.png)
+![Attach IGW to VPC](/images/5-Workshop/5.3-vpc/5.3.2/2.png)
 
 ---
 
@@ -58,8 +58,7 @@ A **Route Table** defines where network traffic is directed.
 | `0.0.0.0/0` | `flashlearn-igw` |
 
 5. Click **Save changes**
-
-![Add Internet Route](/images/5-Workshop/5.3-vpc/5.3.2/add-route.png)
+![Add Internet Route](/images/5-Workshop/5.3-vpc/5.3.2/3.png)
 
 6. **Associate with Public Subnet**: **Subnet associations** tab → **Edit subnet associations** → Select `flashlearn-public-subnet` → **Save associations**
 
@@ -110,7 +109,7 @@ A **Security Group** acts as a virtual firewall, controlling inbound and outboun
 | ---------- | -------- | ---- | ------------------- | -------------------------- |
 | PostgreSQL | TCP      | 5432 | `flashlearn-ec2-sg` | Allow EC2 connections only |
 
-> 🔒 **Security Note**: The source for the PostgreSQL rule must be the **EC2 Security Group** (not an IP address), ensuring only EC2 can access the database.
+>  **Security Note**: The source for the PostgreSQL rule must be the **EC2 Security Group** (not an IP address), ensuring only EC2 can access the database.
 
 4. Click **Create security group**
 
@@ -119,7 +118,7 @@ A **Security Group** acts as a virtual firewall, controlling inbound and outboun
 ## Result
 
 After this step, you will have:
-- ✅ Internet Gateway `flashlearn-igw` attached to the VPC
-- ✅ Route Table `flashlearn-public-rt` routing traffic to the Internet
-- ✅ Security Group `flashlearn-ec2-sg` allowing HTTP/HTTPS/SSH
-- ✅ Security Group `flashlearn-rds-sg` allowing only EC2 to connect to PostgreSQL
+-  Internet Gateway `flashlearn-igw` attached to the VPC
+-  Route Table `flashlearn-public-rt` routing traffic to the Internet
+-  Security Group `flashlearn-ec2-sg` allowing HTTP/HTTPS/SSH
+-  Security Group `flashlearn-rds-sg` allowing only EC2 to connect to PostgreSQL

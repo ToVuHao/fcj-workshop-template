@@ -13,7 +13,6 @@ pre: "<b>5.2.1. </b>"
 
 1. Truy cập **[https://aws.amazon.com](https://aws.amazon.com)** và chọn **Create an AWS Account**
 
-![Trang chủ AWS](/images/5-Workshop/5.2-prerequisite/5.2.1/aws-homepage.png)
 
 2. Điền thông tin đăng ký:
    - **Email address**: Địa chỉ email của bạn
@@ -38,7 +37,6 @@ Sau khi đăng ký, **bắt buộc bật MFA** cho tài khoản root để bảo
 3. Tại mục **Multi-factor authentication (MFA)** → **Assign MFA device**
 4. Chọn **Authenticator app** và làm theo hướng dẫn
 
-![Cấu hình MFA](/images/5-Workshop/5.2-prerequisite/5.2.1/mfa-setup.png)
 
 ---
 
@@ -56,7 +54,6 @@ Sau khi đăng ký, **bắt buộc bật MFA** cho tài khoản root để bảo
 
 3. Gán quyền → **Attach policies directly** → tìm và chọn **AdministratorAccess**
 
-![Tạo IAM User](/images/5-Workshop/5.2-prerequisite/5.2.1/iam-create-user.png)
 
 4. Nhấn **Create user** và lưu lại thông tin đăng nhập
 
@@ -74,7 +71,7 @@ Sau khi đăng ký, **bắt buộc bật MFA** cho tài khoản root để bảo
 
 >  **Zero spend budget** sẽ gửi email ngay khi bất kỳ dịch vụ nào phát sinh chi phí (kể cả $0.01), giúp bạn phát hiện kịp thời.
 
-![Cấu hình Budget](/images/5-Workshop/5.2-prerequisite/5.2.1/budget-setup.png)
+![Cấu hình Budget](/images/5-Workshop/5.2-Prerequisite/budget.png)
 
 ---
 

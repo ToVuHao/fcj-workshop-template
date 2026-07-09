@@ -13,7 +13,6 @@ To complete this workshop, you need an AWS account. If you don't have one yet, f
 
 1. Go to **[https://aws.amazon.com](https://aws.amazon.com)** and click **Create an AWS Account**
 
-![AWS Homepage](/images/5-Workshop/5.2-prerequisite/5.2.1/aws-homepage.png)
 
 2. Fill in the registration details:
    - **Email address**: Your email address
@@ -38,7 +37,6 @@ After registering, **enabling MFA** on the root account is mandatory to protect 
 3. Under **Multi-factor authentication (MFA)** → **Assign MFA device**
 4. Select **Authenticator app** and follow the instructions
 
-![MFA Setup](/images/5-Workshop/5.2-prerequisite/5.2.1/mfa-setup.png)
 
 ---
 
@@ -56,7 +54,6 @@ After registering, **enabling MFA** on the root account is mandatory to protect 
 
 3. Attach permissions → **Attach policies directly** → search and select **AdministratorAccess**
 
-![Create IAM User](/images/5-Workshop/5.2-prerequisite/5.2.1/iam-create-user.png)
 
 4. Click **Create user** and save the login credentials
 
@@ -74,7 +71,7 @@ To avoid unexpected charges, configure a budget alert:
 
 >  **Zero spend budget** sends an email as soon as any service incurs a charge (even $0.01), helping you detect issues promptly.
 
-![Budget Setup](/images/5-Workshop/5.2-prerequisite/5.2.1/budget-setup.png)
+![Budget Setup](/images/5-Workshop/5.2-Prerequisite/budget.png)
 
 ---
 

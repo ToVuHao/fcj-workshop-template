@@ -1,6 +1,6 @@
 ---
 title: "Migrate & Seed Data"
-date: 2024-01-01
+date: 2026-07-09
 weight: 2
 chapter: false
 pre: "<b>5.4.2. </b>"
@@ -23,7 +23,7 @@ On your local machine, update `appsettings.json` in the FlashLearn project:
 }
 ```
 
-> ⚠️ Replace `flashlearn-db.xxxx.ap-southeast-1.rds.amazonaws.com` with the actual Endpoint you saved in step 5.4.1
+>  Replace `flashlearn-db.xxxx.ap-southeast-1.rds.amazonaws.com` with the actual Endpoint you saved in step 5.4.1
 
 ---
 
@@ -61,7 +61,7 @@ dotnet ef migrations add InitialPostgreSQL
 
 ## 4. Connect EC2 to RDS to Run Migration
 
-> 💡 Since RDS is in a Private Subnet, you must SSH into EC2 first, then run the migration from EC2.
+>  Since RDS is in a Private Subnet, you must SSH into EC2 first, then run the migration from EC2.
 
 **Step 1**: SSH into EC2 (created in step 5.5):
 
@@ -129,6 +129,6 @@ VALUES
 ## Result
 
 After this step, you will have:
-- ✅ Connection String updated to point to RDS PostgreSQL
-- ✅ Database schema created via EF Core Migrations
-- ✅ Sample data seeded into the database
+-  Connection String updated to point to RDS PostgreSQL
+-  Database schema created via EF Core Migrations
+-  Sample data seeded into the database

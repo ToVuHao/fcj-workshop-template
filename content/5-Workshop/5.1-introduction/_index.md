@@ -1,6 +1,6 @@
 ---
 title: "Introduction"
-date: 2024-01-01
+date: 2026-07-09
 weight: 1
 chapter: false
 pre: "<b>5.1. </b>"
@@ -25,7 +25,7 @@ The application currently runs with **SQLite** on a local environment. This work
 
 The system is designed following a **3-Tier Architecture** deployed within a **Virtual Private Cloud (VPC)** with clearly separated subnets:
 
-![FlashLearn AWS Architecture](/images/5-Workshop/architecture-overview.png)
+![FlashLearn AWS Architecture](/images/5-Workshop/5.1-Workshop-overview/aws_whiteboard.png)
 
 ### Core Components
 
@@ -85,7 +85,6 @@ After completing this workshop, you will be able to:
 
 ## Estimated Cost
 
->  New AWS accounts have **12 months of Free Tier**. If Free Tier has expired, estimated costs are as follows:
 
 | Service         | Configuration         | Monthly Cost   |
 | --------------- | --------------------- | -------------- |
@@ -95,4 +94,3 @@ After completing this workshop, you will be able to:
 | Amazon Cognito  | < 50,000 MAU          | $0.00          |
 | **Total**       |                       | **~$24/month** |
 
->  **Note**: Run step **5.8 - Clean Up Resources** immediately after completing the workshop to avoid unexpected charges.

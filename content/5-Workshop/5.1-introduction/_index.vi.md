@@ -1,6 +1,6 @@
 ---
 title: "Giới thiệu"
-date: 2024-01-01
+date: 2026-07-09
 weight: 1
 chapter: false
 pre: "<b>5.1. </b>"
@@ -25,7 +25,7 @@ pre: "<b>5.1. </b>"
 
 Hệ thống được thiết kế theo mô hình **3 lớp (3-Tier Architecture)** đặt trong một **Virtual Private Cloud (VPC)** có phân chia subnet rõ ràng:
 
-![Kiến trúc FlashLearn AWS](/images/5-Workshop/architecture-overview.png)
+![Kiến trúc FlashLearn AWS](/images/5-Workshop/5.1-Workshop-overview/aws_whiteboard.png)
 
 ### Các thành phần chính
 
@@ -85,7 +85,6 @@ Biết cách dọn dẹp tài nguyên để tránh phát sinh chi phí
 
 ## Chi phí ước tính
 
->  Tài khoản AWS mới có **12 tháng Free Tier**. Nếu đã hết Free Tier, chi phí ước tính như sau:
 
 | Dịch vụ         | Cấu hình              | Chi phí/tháng  |
 | --------------- | --------------------- | -------------- |
@@ -95,4 +94,3 @@ Biết cách dọn dẹp tài nguyên để tránh phát sinh chi phí
 | Amazon Cognito  | < 50,000 MAU          | $0.00          |
 | **Tổng**        |                       | **~$24/tháng** |
 
->  **Lưu ý**: Hãy chạy bước **5.8 - Dọn dẹp tài nguyên** ngay sau khi hoàn thành workshop để tránh phát sinh chi phí ngoài ý muốn.

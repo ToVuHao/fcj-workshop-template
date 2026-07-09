@@ -44,7 +44,7 @@ Default region name [None]: ap-southeast-1
 Default output format [None]: json
 ```
 
-> 💡 To get the **Access Key**: Go to IAM → Users → `flashlearn-admin` → Security credentials → **Create access key**
+>  To get the **Access Key**: Go to IAM → Users → `flashlearn-admin` → Security credentials → **Create access key**
 
 ---
 
@@ -118,7 +118,7 @@ Build succeeded.
 ## Result
 
 After this step, you will have:
-- ✅ AWS CLI configured with your IAM User
-- ✅ .NET SDK 8.0 installed
-- ✅ Git and SSH Client ready
-- ✅ FlashLearn source code cloned locally
+-  AWS CLI configured with your IAM User
+-  .NET SDK 8.0 installed
+-  Git and SSH Client ready
+-  FlashLearn source code cloned locally

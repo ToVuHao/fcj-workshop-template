@@ -1,6 +1,6 @@
 ---
 title: "Tạo RDS PostgreSQL"
-date: 2024-01-01
+date: 2026-07-09
 weight: 1
 chapter: false
 pre: "<b>5.4.1. </b>"
@@ -29,7 +29,7 @@ Trước khi tạo RDS, cần tạo **Subnet Group** để chỉ định RDS s�
 
 4. Nhấn **Create**
 
-![Tạo DB Subnet Group](/images/5-Workshop/5.4-rds/5.4.1/create-subnet-group.png)
+![Tạo DB Subnet Group](/images/5-Workshop/5.4-rds/5.4.1/1.png)
 
 ---
 
@@ -83,7 +83,7 @@ Trước khi tạo RDS, cần tạo **Subnet Group** để chỉ định RDS s�
 
 8. Nhấn **Create database** và chờ khoảng **5-10 phút** để database khởi tạo
 
-![RDS Đang Khởi Tạo](/images/5-Workshop/5.4-rds/5.4.1/rds-creating.png)
+![RDS Đang Khởi Tạo](/images/5-Workshop/5.4-rds/5.4.1/2.png)
 
 ---
 
@@ -94,7 +94,7 @@ Sau khi RDS ở trạng thái **Available**, ghi lại **Endpoint** để dùng 
 1. Chọn database `flashlearn-db` → tab **Connectivity & security**
 2. Sao chép **Endpoint** (ví dụ: `flashlearn-db.xxxx.ap-southeast-1.rds.amazonaws.com`)
 
-![RDS Endpoint](/images/5-Workshop/5.4-rds/5.4.1/rds-endpoint.png)
+![RDS Endpoint](/images/5-Workshop/5.4-rds/5.4.1/3.png)
 
 ---
 

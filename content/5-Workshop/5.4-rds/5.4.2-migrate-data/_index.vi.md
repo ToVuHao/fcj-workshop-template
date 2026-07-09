@@ -1,6 +1,6 @@
 ---
 title: "Migrate & Seed dữ liệu"
-date: 2024-01-01
+date: 2026-07-09
 weight: 2
 chapter: false
 pre: "<b>5.4.2. </b>"
@@ -23,7 +23,7 @@ Trên máy tính local, cập nhật file `appsettings.json` của project Flash
 }
 ```
 
-> ⚠️ Thay `flashlearn-db.xxxx.ap-southeast-1.rds.amazonaws.com` bằng Endpoint thực tế bạn đã lưu ở bước 5.4.1
+>  Thay `flashlearn-db.xxxx.ap-southeast-1.rds.amazonaws.com` bằng Endpoint thực tế bạn đã lưu ở bước 5.4.1
 
 ---
 
@@ -61,7 +61,7 @@ dotnet ef migrations add InitialPostgreSQL
 
 ## 4. Kết nối EC2 vào RDS để chạy Migration
 
-> 💡 Vì RDS ở Private Subnet, bạn phải SSH vào EC2 trước rồi mới chạy migration từ EC2.
+>  Vì RDS ở Private Subnet, bạn phải SSH vào EC2 trước rồi mới chạy migration từ EC2.
 
 **Bước 1**: SSH vào EC2 (sẽ tạo ở bước 5.5):
 
@@ -129,6 +129,6 @@ VALUES
 ## Kết quả
 
 Sau bước này, bạn đã có:
-- ✅ Connection String đã cập nhật trỏ đến RDS PostgreSQL
-- ✅ Schema database đã được tạo thông qua EF Core Migrations
-- ✅ Dữ liệu mẫu đã được seed vào database
+-  Connection String đã cập nhật trỏ đến RDS PostgreSQL
+-  Schema database đã được tạo thông qua EF Core Migrations
+-  Dữ liệu mẫu đã được seed vào database

@@ -1,6 +1,6 @@
 ---
 title: "Khởi tạo VPC & Subnets"
-date: 2024-01-01
+date: 2026-07-09
 weight: 1
 chapter: false
 pre: "<b>5.3.1. </b>"
@@ -21,7 +21,6 @@ Trong bước này, chúng ta sẽ tạo một VPC mới và phân chia thành c
 ![VPC Dashboard](/images/5-Workshop/5.3-S3-vpc/5.3.1.1.png)
 
 
-
 1. Cấu hình VPC:
 
 | Trường                  | Giá trị            |
@@ -35,7 +34,6 @@ Trong bước này, chúng ta sẽ tạo một VPC mới và phân chia thành c
 4. Nhấn **Create VPC**
 
 ![Tạo VPC](/images/5-Workshop/5.3-S3-vpc/5.3.1-vpc-created.png)
-
 
 ---
 
@@ -57,8 +55,6 @@ Public Subnet sẽ chứa EC2 instance chạy ứng dụng FlashLearn.
 3. Nhấn **Create subnet**
 
 ![Tạo Public Subnet](/images/5-Workshop/5.3-S3-vpc/5.3.1.2.png)
-
-
 
 1. Sau khi tạo xong, **bật tính năng Auto-assign public IP**:
    - Chọn subnet `flashlearn-public-subnet`
@@ -95,7 +91,6 @@ Private Subnet sẽ chứa RDS database, không có kết nối Internet trực 
 
 ![Tạo Private Subnets](/images/5-Workshop/5.3-S3-vpc/5.3.1.3.png)
 ![Create Private Subnets](/images/5-Workshop/5.3-S3-vpc/5.3.1.4.png)
-
 
 ---
 
