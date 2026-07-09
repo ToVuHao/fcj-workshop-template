@@ -27,7 +27,7 @@ pre: "<b>5.6.1. </b>"
 
 3. Tích xác nhận bỏ chặn public access → Nhấn **Create bucket**
 
-![Tạo S3 Bucket](/images/5-Workshop/5.6-s3/5.6.1/create-bucket.png)
+
 
 ---
 
@@ -106,7 +106,7 @@ EC2 cần quyền để đọc/ghi vào S3. Cách tốt nhất là dùng **IAM R
    - **Actions** → **Security** → **Modify IAM role**
    - Chọn `flashlearn-ec2-role` → **Update IAM role**
 
-![Gắn IAM Role vào EC2](/images/5-Workshop/5.6-s3/5.6.1/attach-role.png)
+
 
 ---
 

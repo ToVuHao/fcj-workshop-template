@@ -170,7 +170,7 @@ Mở trình duyệt và truy cập:
 http://<EC2-Public-IP>:5000
 ```
 
-![FlashLearn Running](/images/5-Workshop/5.5-ec2/5.5.2/app-running.png)
+
 
 ---
 
