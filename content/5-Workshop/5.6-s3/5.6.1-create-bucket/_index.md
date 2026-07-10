@@ -27,7 +27,8 @@ pre: "<b>5.6.1. </b>"
 
 1. Confirm unchecking public access block → Click **Create bucket**
 
-![Create S3 Bucket](/images/5-Workshop/5.6-s3/5.6.1/1.png)
+<img width="890" height="822" alt="image" src="https://github.com/user-attachments/assets/a2131800-a4db-42d3-9ea1-9caeac80927f" />
+
 
 ---
 
@@ -105,7 +106,8 @@ EC2 needs permissions to read and write to S3. The best practice is to use an **
    - **Actions** → **Security** → **Modify IAM role**
    - Select `flashlearn-ec2-role` → **Update IAM role**
 
-![Attach IAM Role to EC2](/images/5-Workshop/5.6-s3/5.6.1/2.png)
+<img width="1458" height="510" alt="image" src="https://github.com/user-attachments/assets/aba7e3e9-b64a-402a-9140-1ac212353ed6" />
+
 
 ---
 
