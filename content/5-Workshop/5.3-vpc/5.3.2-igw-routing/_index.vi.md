@@ -25,14 +25,16 @@ Sau khi tạo VPC và các Subnet, chúng ta cần cấu hình **Internet Gatewa
 
 3. Nhấn **Create internet gateway**
 
-![Tạo Internet Gateway](/images/5-Workshop/5.3-vpc/5.3.2/1.png)
+<img width="1460" height="491" alt="image" src="https://github.com/user-attachments/assets/559fdbf4-3cc7-4c00-a1c0-760aa179780c" />
+
 
 4. Sau khi tạo, **gắn IGW vào VPC**:
    - Chọn `flashlearn-igw` → **Actions** → **Attach to VPC**
    - Chọn `flashlearn-vpc`
    - Nhấn **Attach internet gateway**
 
-![Gắn IGW vào VPC](/images/5-Workshop/5.3-vpc/5.3.2/2.png)
+<img width="1458" height="338" alt="image" src="https://github.com/user-attachments/assets/dd7fc902-cbb7-4e8a-8956-420a9aeba5c6" />
+
 
 ---
 
@@ -59,7 +61,8 @@ Sau khi tạo VPC và các Subnet, chúng ta cần cấu hình **Internet Gatewa
 
 5. Nhấn **Save changes**
 
-![Thêm Route Internet](/images/5-Workshop/5.3-vpc/5.3.2/3.png)
+<img width="1452" height="355" alt="image" src="https://github.com/user-attachments/assets/318288a1-ba73-47c0-9365-5a4ee274b66b" />
+
 
 6. **Gắn vào Public Subnet**: Tab **Subnet associations** → **Edit subnet associations** → Chọn `flashlearn-public-subnet` → **Save associations**
 
