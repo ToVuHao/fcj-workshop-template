@@ -29,7 +29,8 @@ Before creating RDS, you need to create a **Subnet Group** to specify which Priv
 
 4. Click **Create**
 
-![Create DB Subnet Group](/images/5-Workshop/5.4-rds/5.4.1/1.png)
+<img width="1462" height="695" alt="image" src="https://github.com/user-attachments/assets/d495607e-d529-4ae7-8270-578d249a8bed" />
+
 
 ---
 
@@ -83,7 +84,8 @@ Before creating RDS, you need to create a **Subnet Group** to specify which Priv
 
 8. Click **Create database** and wait approximately **5–10 minutes** for the database to initialize
 
-![RDS Creating](/images/5-Workshop/5.4-rds/5.4.1/2.png)
+<img width="1472" height="452" alt="image" src="https://github.com/user-attachments/assets/66a3e539-660c-473d-9c53-034121ecede4" />
+
 
 ---
 
@@ -94,7 +96,8 @@ After RDS reaches **Available** status, record the **Endpoint** for use in later
 1. Select database `flashlearn-db` → **Connectivity & security** tab
 2. Copy the **Endpoint** (e.g., `flashlearn-db.xxxx.ap-southeast-1.rds.amazonaws.com`)
 
-![RDS Endpoint](/images/5-Workshop/5.4-rds/5.4.1/3.png)
+<img width="1457" height="675" alt="image" src="https://github.com/user-attachments/assets/4db15e76-f999-4621-9555-20cbbffd3953" />
+
 
 ---
 
