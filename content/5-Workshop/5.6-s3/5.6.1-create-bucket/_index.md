@@ -23,11 +23,11 @@ pre: "<b>5.6.1. </b>"
 | **Block Public Access** | **Uncheck** "Block all public access" |
 | **Bucket Versioning**   | Disable                               |
 
->  **Bucket names must be globally unique** across all of AWS. Add your name or date to avoid conflicts (e.g., `flashlearn-media-yourname-2026`)
-
-3. Confirm unchecking public access block → Click **Create bucket**
 
 
+1. Confirm unchecking public access block → Click **Create bucket**
+
+![Create S3 Bucket](/images/5-Workshop/5.6-s3/5.6.1/1.png)
 
 ---
 
@@ -48,15 +48,14 @@ Configure a policy to allow public read access to flashcard images:
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::flashlearn-media-<your-name>/*"
+      "Resource": "arn:aws:s3:::flashlearn-media-quangphuc/*"
     }
   ]
 }
 ```
 
-> Replace `flashlearn-media-<your-name>` with your actual bucket name.
 
-3. Click **Save changes**
+1. Click **Save changes**
 
 ---
 
@@ -106,7 +105,7 @@ EC2 needs permissions to read and write to S3. The best practice is to use an **
    - **Actions** → **Security** → **Modify IAM role**
    - Select `flashlearn-ec2-role` → **Update IAM role**
 
-
+![Attach IAM Role to EC2](/images/5-Workshop/5.6-s3/5.6.1/2.png)
 
 ---
 

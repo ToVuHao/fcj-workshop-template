@@ -173,7 +173,7 @@ Test the authentication flow:
 ## Result
 
 After this step, you will have:
-- ✅ Cognito fully integrated into ASP.NET Core
-- ✅ Sign-in/Sign-up via Cognito Hosted UI
-- ✅ JWT Token validated automatically
-- ✅ Cognito User ID used as the key in the database
+-  Cognito fully integrated into ASP.NET Core
+-  Sign-in/Sign-up via Cognito Hosted UI
+-  JWT Token validated automatically
+-  Cognito User ID used as the key in the database

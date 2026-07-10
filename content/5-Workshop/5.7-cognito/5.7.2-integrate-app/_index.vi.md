@@ -175,7 +175,7 @@ Kiểm tra luồng đăng nhập:
 ## Kết quả
 
 Sau bước này, bạn đã có:
-- ✅ Cognito tích hợp hoàn toàn vào ASP.NET Core
-- ✅ Đăng nhập/Đăng ký qua Cognito Hosted UI
-- ✅ JWT Token được validate tự động
-- ✅ User ID từ Cognito được dùng làm khóa trong database
+-  Cognito tích hợp hoàn toàn vào ASP.NET Core
+-  Đăng nhập/Đăng ký qua Cognito Hosted UI
+-  JWT Token được validate tự động
+-  User ID từ Cognito được dùng làm khóa trong database

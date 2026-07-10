@@ -47,7 +47,7 @@ chmod 400 flashlearn-key.pem
    - Chọn **Ubuntu Server 22.04 LTS (HVM)**
    - Architecture: **64-bit (x86)**
 
-
+![Chọn Ubuntu AMI](/images/5-Workshop/5.5-ec2/5.5.1/1.png)
 
 4. **Instance type**:
    - Chọn **t3.micro** (Free Tier eligible)
@@ -70,7 +70,7 @@ chmod 400 flashlearn-key.pem
 
 8. Nhấn **Launch instance**
 
-
+![EC2 Instance Running](/images/5-Workshop/5.5-ec2/5.5.1/2.png)
 
 ---
 

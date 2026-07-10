@@ -31,7 +31,7 @@ Update `appsettings.Production.json`:
 {
   "AWS": {
     "Region": "ap-southeast-1",
-    "BucketName": "flashlearn-media-<your-name>"
+    "BucketName": "flashlearn-media-quangphuc"
   }
 }
 ```
@@ -142,12 +142,12 @@ sudo journalctl -u flashlearn -f
 3. Verify the image appears in the S3 bucket:
 
 ```bash
-aws s3 ls s3://flashlearn-media-<your-name>/flashcard-images/
+aws s3 ls s3://flashlearn-media-quangphuc/flashcard-images/
 ```
 
 Verify the image URL is publicly accessible:
 ```
-https://flashlearn-media-<name>.s3.ap-southeast-1.amazonaws.com/flashcard-images/<filename>
+https://flashlearn-media-quangphuc.s3.ap-southeast-1.amazonaws.com/flashcard-images/<filename>
 ```
 
 ---
@@ -155,7 +155,7 @@ https://flashlearn-media-<name>.s3.ap-southeast-1.amazonaws.com/flashcard-images
 ## Result
 
 After this step, you will have:
-- ✅ AWS SDK integrated into ASP.NET Core
-- ✅ S3Service handling file upload and deletion
-- ✅ Flashcard images stored on S3 instead of EC2 local disk
-- ✅ Image URLs publicly accessible from the Internet
+-  AWS SDK integrated into ASP.NET Core
+-  S3Service handling file upload and deletion
+-  Flashcard images stored on S3 instead of EC2 local disk
+-  Image URLs publicly accessible from the Internet

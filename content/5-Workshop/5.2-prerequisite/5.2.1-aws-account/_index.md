@@ -71,7 +71,7 @@ To avoid unexpected charges, configure a budget alert:
 
 >  **Zero spend budget** sends an email as soon as any service incurs a charge (even $0.01), helping you detect issues promptly.
 
-
+![Budget Setup](/images/5-Workshop/5.2-Prerequisite/budget.png)
 
 ---
 

@@ -23,11 +23,11 @@ pre: "<b>5.6.1. </b>"
 | **Block Public Access** | **Bỏ tích** "Block all public access" |
 | **Bucket Versioning**   | Disable                               |
 
->  **Tên bucket phải là duy nhất toàn cầu** trên AWS. Thêm tên hoặc ngày vào để tránh trùng (VD: `flashlearn-media-yourname-2026`)
-
-3. Tích xác nhận bỏ chặn public access → Nhấn **Create bucket**
 
 
+1. Tích xác nhận bỏ chặn public access → Nhấn **Create bucket**
+
+![Tạo S3 Bucket](/images/5-Workshop/5.6-s3/5.6.1/1.png)
 
 ---
 
@@ -48,15 +48,14 @@ Cấu hình policy để cho phép đọc file công khai (ảnh flashcard có t
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::flashlearn-media-<tên-của-bạn>/*"
+      "Resource": "arn:aws:s3:::flashlearn-media-quangphuc/*"
     }
   ]
 }
 ```
 
-> Thay `flashlearn-media-<tên-của-bạn>` bằng tên bucket thực tế của bạn.
 
-3. Nhấn **Save changes**
+1. Nhấn **Save changes**
 
 ---
 
@@ -106,7 +105,7 @@ EC2 cần quyền để đọc/ghi vào S3. Cách tốt nhất là dùng **IAM R
    - **Actions** → **Security** → **Modify IAM role**
    - Chọn `flashlearn-ec2-role` → **Update IAM role**
 
-
+![Gắn IAM Role vào EC2](/images/5-Workshop/5.6-s3/5.6.1/2.png)
 
 ---
 

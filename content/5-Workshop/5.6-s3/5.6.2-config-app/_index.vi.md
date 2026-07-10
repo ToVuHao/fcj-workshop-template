@@ -31,7 +31,7 @@ Cập nhật `appsettings.Production.json`:
 {
   "AWS": {
     "Region": "ap-southeast-1",
-    "BucketName": "flashlearn-media-<tên-của-bạn>"
+    "BucketName": "flashlearn-media-quangphuc"
   }
 }
 ```
@@ -142,12 +142,12 @@ sudo journalctl -u flashlearn -f
 3. Kiểm tra ảnh đã xuất hiện trong S3 bucket:
 
 ```bash
-aws s3 ls s3://flashlearn-media-<tên-của-bạn>/flashcard-images/
+aws s3 ls s3://flashlearn-media-quangphuc/flashcard-images/
 ```
 
 Kiểm tra URL ảnh có thể truy cập công khai:
 ```
-https://flashlearn-media-<tên>.s3.ap-southeast-1.amazonaws.com/flashcard-images/<filename>
+https://flashlearn-media-quangphuc.s3.ap-southeast-1.amazonaws.com/flashcard-images/<filename>
 ```
 
 ---
@@ -155,7 +155,7 @@ https://flashlearn-media-<tên>.s3.ap-southeast-1.amazonaws.com/flashcard-images
 ## Kết quả
 
 Sau bước này, bạn đã có:
-- ✅ AWS SDK tích hợp vào ứng dụng ASP.NET Core
-- ✅ S3Service xử lý upload/delete file
-- ✅ Ảnh flashcard lưu trên S3 thay vì EC2 local
-- ✅ URL ảnh có thể truy cập công khai từ Internet
+-  AWS SDK tích hợp vào ứng dụng ASP.NET Core
+-  S3Service xử lý upload/delete file
+-  Ảnh flashcard lưu trên S3 thay vì EC2 local
+-  URL ảnh có thể truy cập công khai từ Internet
