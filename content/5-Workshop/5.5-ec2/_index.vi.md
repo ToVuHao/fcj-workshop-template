@@ -1,7 +1,7 @@
 ---
 title: "Cài đặt môi trường & Deploy ứng dụng"
 date: 2026-07-09
-weight: 2
+weight: 5
 chapter: false
 pre: "<b>5.5. </b>"
 ---
