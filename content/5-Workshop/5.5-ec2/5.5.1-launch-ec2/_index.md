@@ -47,7 +47,8 @@ chmod 400 flashlearn-key.pem
    - Select **Ubuntu Server 22.04 LTS (HVM)**
    - Architecture: **64-bit (x86)**
 
-![Select Ubuntu AMI](/images/5-Workshop/5.5-ec2/5.5.1/1.png)
+<img width="1462" height="658" alt="image" src="https://github.com/user-attachments/assets/515f2558-2171-44a0-aa22-9e5831996c17" />
+
 
 4. **Instance type**:
    - Select **t3.micro** (Free Tier eligible)
@@ -70,7 +71,8 @@ chmod 400 flashlearn-key.pem
 
 8. Click **Launch instance**
 
-![EC2 Instance Running](/images/5-Workshop/5.5-ec2/5.5.1/2.png)
+<img width="1461" height="288" alt="image" src="https://github.com/user-attachments/assets/d3486180-8d89-42f0-8f90-bf1e4929bf96" />
+
 
 ---
 
