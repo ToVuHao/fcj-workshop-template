@@ -25,7 +25,8 @@ pre: "<b>5.1. </b>"
 
 Hệ thống được thiết kế theo mô hình **3 lớp (3-Tier Architecture)** đặt trong một **Virtual Private Cloud (VPC)** có phân chia subnet rõ ràng:
 
-![Kiến trúc FlashLearn AWS](/images/5-Workshop/5.1-Workshop-overview/aws_whiteboard.png)
+<img width="1451" height="757" alt="image" src="https://github.com/user-attachments/assets/98a2bbd3-8a95-418a-ae55-e96eb269764f" />
+
 
 ### Các thành phần chính
 
