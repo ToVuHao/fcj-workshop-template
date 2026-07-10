@@ -25,14 +25,16 @@ An **Internet Gateway (IGW)** is the gateway connecting the VPC to the Internet.
 
 3. Click **Create internet gateway**
 
-![Create Internet Gateway](/images/5-Workshop/5.3-vpc/5.3.2/1.png)
+<img width="1460" height="491" alt="image" src="https://github.com/user-attachments/assets/47f2f15b-fa22-4ec7-aec9-dd935d36b9fd" />
+
 
 4. After creation, **attach the IGW to the VPC**:
    - Select `flashlearn-igw` → **Actions** → **Attach to VPC**
    - Select `flashlearn-vpc`
    - Click **Attach internet gateway**
 
-![Attach IGW to VPC](/images/5-Workshop/5.3-vpc/5.3.2/2.png)
+<img width="1458" height="338" alt="image" src="https://github.com/user-attachments/assets/90f259fc-3ef3-449a-bfb0-4e8430e2aab8" />
+
 
 ---
 
@@ -58,7 +60,8 @@ A **Route Table** defines where network traffic is directed.
 | `0.0.0.0/0` | `flashlearn-igw` |
 
 5. Click **Save changes**
-![Add Internet Route](/images/5-Workshop/5.3-vpc/5.3.2/3.png)
+<img width="1452" height="355" alt="image" src="https://github.com/user-attachments/assets/f07f908b-f55a-4e35-af64-4a523738a603" />
+
 
 6. **Associate with Public Subnet**: **Subnet associations** tab → **Edit subnet associations** → Select `flashlearn-public-subnet` → **Save associations**
 
