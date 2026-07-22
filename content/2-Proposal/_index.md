@@ -32,7 +32,8 @@ The solution establishes a foundational resource for lab members to develop a la
 
 ### 3. Solution Architecture
 The platform utilizes a distributed architecture with specialized AWS services, housed within a Virtual Private Cloud (VPC) with clear subnet segmentation across two Availability Zones.
-<img width="975" height="507" alt="image" src="https://github.com/user-attachments/assets/3a82fe9f-717b-40af-87cb-50901cd9a45e" />
+<img width="823" height="492" alt="image" src="https://github.com/user-attachments/assets/73faf9a0-5844-4241-9027-e0b8daf2c3e4" />
+
 
 
 AWS Services Used
