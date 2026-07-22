@@ -25,7 +25,8 @@ The application currently runs with **SQLite** on a local environment. This work
 
 The system is designed following a **3-Tier Architecture** deployed within a **Virtual Private Cloud (VPC)** with clearly separated subnets:
 
-<img width="1451" height="757" alt="image" src="https://github.com/user-attachments/assets/a1627d48-3698-490e-a05f-32da4a355d8f" />
+<img width="821" height="492" alt="image" src="https://github.com/user-attachments/assets/c80ef2b7-68d8-4f78-a513-f0e08c28883d" />
+
 
 
 ### Core Components
