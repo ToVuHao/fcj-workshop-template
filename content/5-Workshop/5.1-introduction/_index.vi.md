@@ -25,7 +25,8 @@ pre: "<b>5.1. </b>"
 
 Hệ thống được thiết kế theo mô hình **3 lớp (3-Tier Architecture)** đặt trong một **Virtual Private Cloud (VPC)** có phân chia subnet rõ ràng:
 
-<img width="1451" height="757" alt="image" src="https://github.com/user-attachments/assets/98a2bbd3-8a95-418a-ae55-e96eb269764f" />
+<img width="821" height="492" alt="image" src="https://github.com/user-attachments/assets/80d908cd-486d-4fe8-93f2-954392cf54e1" />
+
 
 
 ### Các thành phần chính
