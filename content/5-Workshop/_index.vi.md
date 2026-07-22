@@ -9,6 +9,8 @@ pre: "<b>5. </b>"
 
 **FlashLearn** là ứng dụng web học tiếng Anh thông minh, cho phép người dùng tạo và ôn luyện từ vựng thông qua hệ thống thẻ ghi nhớ (Flashcard) kết hợp thuật toán lặp lại ngắt quãng (Spaced Repetition).
 
+http://flash-learn.ap-southeast-1.elasticbeanstalk.com/
+
 Trong workshop này, bạn sẽ học cách triển khai ứng dụng **ASP.NET Core 8.0** lên hạ tầng **Amazon Web Services (AWS)** theo kiến trúc 3 lớp chuẩn doanh nghiệp.
 
 ---
