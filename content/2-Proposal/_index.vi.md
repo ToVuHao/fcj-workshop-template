@@ -28,7 +28,8 @@ Giải pháp tạo nền tảng vững chắc, có khả năng mở rộng quy m
 ### 3. Kiến trúc giải pháp  
 Nền tảng áp dụng kiến trúc phân tán với các dịch vụ chuyên biệt của AWS, đặt bên trong VPC có phân chia Subnet rõ ràng trên 2 Availability Zones.
 
-<img width="975" height="507" alt="image" src="https://github.com/user-attachments/assets/2d894bb6-4c94-4a1f-9772-e31593ec9e4e" />
+<img width="823" height="492" alt="image" src="https://github.com/user-attachments/assets/489efd4b-60bb-4bab-8706-89a3b5c9c01b" />
+
 
 
 Dịch vụ AWS sử dụng
