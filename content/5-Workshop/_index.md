@@ -9,7 +9,7 @@ pre: "<b>5. </b>"
 
 **FlashLearn** is a smart English learning web application that allows users to create and review vocabulary through a flashcard system combined with a Spaced Repetition algorithm.
 
-http://flash-learn.ap-southeast-1.elasticbeanstalk.com/
+https://d2rk4q7n3y3z05.cloudfront.net/Account/Register
 
 In this workshop, you will learn how to deploy an **ASP.NET Core 8.0** application onto **Amazon Web Services (AWS)** infrastructure using a standard enterprise 3-tier architecture.
 
